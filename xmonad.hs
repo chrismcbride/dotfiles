@@ -1,0 +1,49 @@
+import XMonad
+import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.ManageDocks
+import XMonad.Util.Run(spawnPipe)
+import XMonad.Util.EZConfig(additionalKeys, removeKeys)
+import XMonad.Hooks.SetWMName
+import XMonad.Hooks.ICCCMFocus
+import XMonad.Layout.NoBorders
+import XMonad.Hooks.ManageHelpers
+import XMonad.Prompt
+import XMonad.Actions.WorkspaceNames
+import XMonad.Actions.GridSelect (defaultGSConfig, goToSelected)
+import System.IO
+
+main = do
+    xmproc <- spawnPipe "/usr/bin/xmobar -x 0 /home/mcbride/.xmobarrc"
+    xmonad $ defaultConfig {
+         manageHook = manageDocks <+> ( myManageHooks <+> manageHook defaultConfig ),
+         layoutHook = smartBorders( avoidStruts  $  layoutHook defaultConfig ),
+         logHook = workspaceNamesPP defaultPP 
+                        		{ ppOutput = hPutStrLn xmproc
+					, ppCurrent = xmobarColor "yellow" "" . wrap "[" "]"
+					, ppVisible = xmobarColor "red" "" . wrap "(" ")"
+					, ppUrgent = xmobarColor "blue" "gray"
+					, ppSep = " | "
+					, ppLayout = xmobarColor "orange" "" . trim
+					, ppTitle = xmobarColor "green" "" . trim
+					} >>= dynamicLogWithPP >> takeTopFocus
+         , modMask = mod4Mask     -- Rebind Mod to the Windows key
+         , startupHook = setWMName "LG3D" --java hack
+         }  `additionalKeys`
+         [ ((mod4Mask .|. shiftMask, xK_l), spawn "xscreensaver-command -lock")
+         , ((controlMask, xK_Print), spawn "sleep 0.2; scrot -s")
+         , ((mod4Mask .|. shiftMask, xK_F12), spawn "x-terminal-emulator -e 'gdm-control --shutdown && xmonad --restart'")
+	 , ((mod4Mask .|. shiftMask, xK_F11), spawn "x-terminal-emulator -e 'gdm-control --restart && xmonad --restart'")
+	 , ((mod4Mask .|. shiftMask, xK_Return), spawn "terminator")
+	 , ((mod4Mask .|. shiftMask, xK_r), renameWorkspace defaultXPConfig)
+	 , ((mod4Mask .|. shiftMask, xK_Control_L), goToSelected defaultGSConfig)
+         , ((0, xK_Print), spawn "scrot")
+         ]
+	   `removeKeys`
+	 [ (mod4Mask, xK_q) ]
+
+myManageHooks = composeAll . concat $
+     [ [ isFullscreen --> doFullFloat ]
+    ,  [(className =? "Firefox" <&&> resource =? "Dialog") --> doFloat] 
+    ,  [(title =? "volumeicon") --> doFloat]
+    ,  [(title =? "Preferences") --> doFloat] 
+    ,  [(className =? "Gimp") --> doFloat ] ]
