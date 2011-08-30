@@ -10,13 +10,15 @@ import XMonad.Hooks.ManageHelpers
 import XMonad.Prompt
 import XMonad.Actions.WorkspaceNames
 import XMonad.Actions.GridSelect (defaultGSConfig, goToSelected)
+import XMonad.Layout.MouseResizableTile
 import System.IO
 
 main = do
     xmproc <- spawnPipe "/usr/bin/xmobar -x 0 /home/mcbride/.xmobarrc"
     xmonad $ defaultConfig {
          manageHook = manageDocks <+> ( myManageHooks <+> manageHook defaultConfig ),
-         layoutHook = smartBorders( avoidStruts  $  layoutHook defaultConfig ),
+         layoutHook = smartBorders( avoidStruts  $ layout),
+	 workspaces = ["1:chrome","2:vim","3:personal","4:git","5","6","7","8","9:VM"],
          logHook = workspaceNamesPP defaultPP 
                         		{ ppOutput = hPutStrLn xmproc
 					, ppCurrent = xmobarColor "yellow" "" . wrap "[" "]"
@@ -36,6 +38,8 @@ main = do
 	 , ((mod4Mask .|. shiftMask, xK_Return), spawn "terminator")
 	 , ((mod4Mask .|. shiftMask, xK_r), renameWorkspace defaultXPConfig)
 	 , ((mod4Mask .|. shiftMask, xK_Control_L), goToSelected defaultGSConfig)
+	 , ((mod4Mask, xK_u), sendMessage ShrinkSlave) -- %! Shrink a slave area
+	 , ((mod4Mask, xK_i), sendMessage ExpandSlave) -- %! Expand a slave area
          , ((0, xK_Print), spawn "scrot")
          ]
 	   `removeKeys`
@@ -47,3 +51,5 @@ myManageHooks = composeAll . concat $
     ,  [(title =? "volumeicon") --> doFloat]
     ,  [(title =? "Preferences") --> doFloat] 
     ,  [(className =? "Gimp") --> doFloat ] ]
+
+layout = mouseResizableTile ||| mouseResizableTileMirrored ||| Full
