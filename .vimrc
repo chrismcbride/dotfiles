@@ -31,9 +31,31 @@ nnoremap : ;
 vnoremap ; :
 vnoremap : ;
 
+noremap <m-1> <ESC>:b 1<CR> 
+noremap <m-2> <ESC>:b 2<CR> 
+noremap <m-3> <ESC>:b 3<CR> 
+noremap <m-4> <ESC>:b 4<CR> 
+noremap <m-5> <ESC>:b 5<CR> 
+noremap <m-6> <ESC>:b 6<CR> 
+noremap <m-7> <ESC>:b 7<CR> 
+noremap <m-8> <ESC>:b 8<CR> 
+noremap <m-9> <ESC>:b 9<CR> 
+noremap <m-0> <ESC>:b 10<CR> 
+
+noremap <m-!> <ESC>:b 11<CR> 
+noremap <m-@> <ESC>:b 12<CR> 
+noremap <m-#> <ESC>:b 13<CR> 
+noremap <m-$> <ESC>:b 14<CR> 
+noremap <m-%> <ESC>:b 15<CR> 
+noremap <m-^> <ESC>:b 16<CR> 
+noremap <m-&> <ESC>:b 17<CR> 
+noremap <m-*> <ESC>:b 18<CR> 
+noremap <m-(> <ESC>:b 19<CR> 
+noremap <m-)> <ESC>:b 20<CR> 
+
 "search for the current word
 "noremap <F4> :execute "SyntasticDisable php"<CR>:execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>:execute "SyntasticEnable php"<CR>
-noremap <F4> :call VimGrepper(expand("<cword>"))<CR> 
+noremap <F4> <ESC>:call VimGrepper(expand("<cword>"))<CR> 
 
 "search for a word
 command! -nargs=1 Vg call VimGrepper( '<args>' )
@@ -165,6 +187,12 @@ let s:php_executable = "/usr/bin/php"
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=1
 
+"minibuf options
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplUseSingleClick = 1
+let g:miniBufExplModSelTarget = 1
+hi MBENormal guifg=gray ctermfg=gray 
 
 "fix bug with easymotion
 if has('gui_running')
