@@ -48,6 +48,9 @@ endfunction
 "show the tag list
 nnoremap <silent> <F8> :TlistToggle<CR>
 
+"show the nerdtree
+noremap <silent> <F2> :NERDTreeToggle<CR>
+
 "refresh the command list
 nnoremap <silent> <F5> :TlistUpdate<CR>:CommandTFlush<CR>
 
@@ -129,8 +132,10 @@ set scrolloff=3		"always show 3 line +/- from the cursor position
 set cursorline		"show where the cursor is
 set ttyfast
 set gdefault		"all s// commands are global
+set noexpandtab
 set completeopt =menu,menuone,longest "get rid of scratch pad
 set wildignore+=*.git,*.png,*.gif,*.jpg,tags
+set magic	"make regexs more perl like
 
 "statusline
 set statusline=   " clear the statusline for when vimrc is reloaded
