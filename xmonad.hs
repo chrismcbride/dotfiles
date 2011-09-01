@@ -32,12 +32,19 @@ main = do
          , startupHook = setWMName "LG3D" --java hack
          }  `additionalKeys`
          [ ((mod4Mask .|. shiftMask, xK_l), spawn "xscreensaver-command -lock")
+         , ((mod4Mask, xK_p), spawn "dmenu_run")
          , ((controlMask, xK_Print), spawn "sleep 0.2; scrot -s")
          , ((mod4Mask .|. shiftMask, xK_F12), spawn "x-terminal-emulator -e 'gdm-control --shutdown && xmonad --restart'")
 	 , ((mod4Mask .|. shiftMask, xK_F11), spawn "x-terminal-emulator -e 'gdm-control --restart && xmonad --restart'")
 	 , ((mod4Mask .|. shiftMask, xK_Return), spawn "terminator")
 	 , ((mod4Mask .|. shiftMask, xK_r), renameWorkspace defaultXPConfig)
 	 , ((mod4Mask .|. shiftMask, xK_Control_L), goToSelected defaultGSConfig)
+	 --XF86AudioMute
+ 	 , ((0,  0x1008ff12), spawn "amixer sset Master toggle")
+	 -- XF86AudioLowerVolume
+	 , ((0 , 0x1008ff11), spawn "amixer -q sset Master 1- unmute")
+	 -- XF86AudioRaiseVolume
+	 , ((0 , 0x1008ff13), spawn "amixer -q set Master 1+ unmute")
 	 , ((mod4Mask, xK_u), sendMessage ShrinkSlave) -- %! Shrink a slave area
 	 , ((mod4Mask, xK_i), sendMessage ExpandSlave) -- %! Expand a slave area
          , ((0, xK_Print), spawn "scrot")
