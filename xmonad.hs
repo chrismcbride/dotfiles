@@ -14,7 +14,7 @@ import XMonad.Layout.MouseResizableTile
 import System.IO
 
 main = do
-    xmproc <- spawnPipe "/usr/bin/xmobar -x 0 /home/mcbride/.xmobarrc"
+    xmproc <- spawnPipe "/usr/bin/xmobar -x 0 ~/.xmobarrc"
     xmonad $ defaultConfig {
          manageHook = manageDocks <+> ( myManageHooks <+> manageHook defaultConfig ),
          layoutHook = smartBorders( avoidStruts  $ layout),
