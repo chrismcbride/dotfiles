@@ -78,17 +78,14 @@ else
 endif
 
 "search for the current word
-"noremap <F4> :execute "SyntasticDisable php"<CR>:execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>:execute "SyntasticEnable php"<CR>
 noremap <F4> <ESC>:call VimGrepper(expand("<cword>"))<CR> 
 
 "search for a word
 command! -nargs=1 Vg call VimGrepper( '<args>' )
 
 function! VimGrepper(arg)
-	SyntasticDisable php
-	:execute "vimgrep /" . expand(a:arg) . "/j **" 
-	:execute "cwindow"
-	SyntasticEnable php
+	:execute "noautocmd vimgrep /" . a:arg . "/j **" 
+	:execute "botright cwindow"
 endfunction
 
 "show the tag list
@@ -215,7 +212,9 @@ let g:syntastic_auto_loc_list=1
 let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplUseSingleClick = 1
-let g:miniBufExplModSelTarget = 1
+let g:miniBufExplCheckDupeBufs = 0
+let g:miniBufExplVSplit = 30   " column width in chars
+let g:miniBufExplSplitBelow=1  " Put new window on right
 hi MBENormal guifg=gray ctermfg=gray 
 
 "fix bug with easymotion
