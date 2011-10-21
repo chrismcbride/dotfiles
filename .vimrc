@@ -31,52 +31,6 @@ nnoremap : ;
 vnoremap ; :
 vnoremap : ;
 
-if(has('gui_running'))
-	noremap <m-1> <ESC>:b 1<CR> 
-	noremap <m-2> <ESC>:b 2<CR> 
-	noremap <m-3> <ESC>:b 3<CR> 
-	noremap <m-4> <ESC>:b 4<CR> 
-	noremap <m-5> <ESC>:b 5<CR> 
-	noremap <m-6> <ESC>:b 6<CR> 
-	noremap <m-7> <ESC>:b 7<CR> 
-	noremap <m-8> <ESC>:b 8<CR> 
-	noremap <m-9> <ESC>:b 9<CR> 
-	noremap <m-0> <ESC>:b 10<CR> 
-
-	noremap <m-!> <ESC>:b 11<CR> 
-	noremap <m-@> <ESC>:b 12<CR> 
-	noremap <m-#> <ESC>:b 13<CR> 
-	noremap <m-$> <ESC>:b 14<CR> 
-	noremap <m-%> <ESC>:b 15<CR> 
-	noremap <m-^> <ESC>:b 16<CR> 
-	noremap <m-&> <ESC>:b 17<CR> 
-	noremap <m-*> <ESC>:b 18<CR> 
-	noremap <m-(> <ESC>:b 19<CR> 
-	noremap <m-)> <ESC>:b 20<CR> 
-else
-	noremap 1 <ESC>:b 1<CR> 
-	noremap 2 <ESC>:b 2<CR> 
-	noremap 3 <ESC>:b 3<CR> 
-	noremap 4 <ESC>:b 4<CR> 
-	noremap 5 <ESC>:b 5<CR> 
-	noremap 6 <ESC>:b 6<CR> 
-	noremap 7 <ESC>:b 7<CR> 
-	noremap 8 <ESC>:b 8<CR> 
-	noremap 9 <ESC>:b 9<CR> 
-	noremap 0 <ESC>:b 10<CR> 
-
-	noremap ! <ESC>:b 11<CR> 
-	noremap @ <ESC>:b 12<CR> 
-	noremap # <ESC>:b 13<CR> 
-	noremap $ <ESC>:b 14<CR> 
-	noremap % <ESC>:b 15<CR> 
-	noremap ^ <ESC>:b 16<CR> 
-	noremap & <ESC>:b 17<CR> 
-	noremap * <ESC>:b 18<CR> 
-	noremap ( <ESC>:b 19<CR> 
-	noremap ) <ESC>:b 20<CR> 
-endif
-
 "search for the current word
 noremap <F4> <ESC>:call VimGrepper(expand("<cword>"))<CR> 
 
@@ -141,7 +95,7 @@ if has("gui_running")
 	highlight StatusLine guibg=darkred
 	highlight StatusLineNC guifg=purple
 	highlight Comment guifg=salmon
-	set guifont=DejaVu\ Sans\ Mono\ 10 
+	set guifont=DejaVu\ Sans\ Mono\ 8 
 	" Remove toolbar
 	set guioptions-=T	
 	"remove menu
@@ -223,6 +177,3 @@ if has('gui_running')
 else
 	hi EasyMotionShade ctermfg=darkgrey ctermbg=black
 endif
-
-"change omnicomplete color
-highlight Pmenu guibg=brown gui=bold
