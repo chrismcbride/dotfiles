@@ -43,7 +43,7 @@ function! VimGrepper(arg)
 endfunction
 
 "show the tag list
-nnoremap <silent> <F8> :TlistToggle<CR>
+nnoremap <silent> <F8> :TagbarToggle<CR>
 
 "show the nerdtree
 noremap <silent> <F2> :NERDTreeToggle<CR>
@@ -150,12 +150,9 @@ set statusline+=%-14.(%l,%c%V%)\ %<%P        " offset
 "command t options
 let g:CommandTMatchWindowAtTop = 1
 
-"Tlist options
-let Tlist_GainFocus_On_ToggleOpen = 1
-let Tlist_File_Fold_Auto_Close = 1
-let Tlist_Sort_Type = "name"
-let Tlist_Close_On_Select = 1
-let Tlist_Show_One_File = 1
+"taqbar
+let g:tagbar_autoclose = 1
+let g:tagbar_left = 1
 
 "syntastic options
 let s:php_executable = "/usr/bin/php"
