@@ -8,8 +8,9 @@ ZSH=$HOME/.oh-my-zsh
 #ZSH_THEME="miloshadzic"
 #ZSH_THEME="mrtazz"
 #ZSH_THEME="sporty_256"
-ZSH_THEME="sunaku"
+#ZSH_THEME="sunaku"
 #ZSH_THEME="terminalparty"
+ZSH_THEME="mcbride"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
