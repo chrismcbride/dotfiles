@@ -8,22 +8,23 @@ ZSH_THEME_GIT_PROMPT_RENAMED=""
 ZSH_THEME_GIT_PROMPT_UNMERGED=""
 ZSH_THEME_GIT_PROMPT_UNTRACKED=""
 
-ZSH_THEME_GIT_PROMPT_AHEAD="$fg_bold[yellow]↑"
+ZSH_THEME_GIT_PROMPT_AHEAD="%{$fg_bold[yellow]%}↑"
 ZSH_THEME_GIT_PROMPT_PREFIX=""
 ZSH_THEME_GIT_PROMPT_SUFFIX=""
-ZSH_THEME_GIT_PROMPT_DIRTY=" $fg_bold[red]✗"
+ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg_bold[red]%}✗"
 ZSH_THEME_GIT_PROMPT_CLEAN=" %{$fg_bold[green]%}✔"
 
-local user_color='green'
+local user_color='blue'
+local back="${BG[235]}"
 test $UID -eq 0 && user_color='red'
 
-PROMPT='%(?..%{$fg_bold[red]%}exit %?
+PROMPT='$back%(?..%{$fg_bold[red]%}exit %?
 %{$reset_color%})'\
-'%B%!%b %{$fg_bold[$user_color]%}%~%{$reset_color%}'\
-' $(git_prompt_status)%{$reset_color%}'\
-'$fg_bold[magenta]$(git_prompt_info)%{$reset_color%}'\
-'$(git_prompt_ahead)$reset_color'\
-'%(!.#.>) '
+'$back%B%!%b$back %{$fg_bold[$user_color]%}%~%{$reset_color%}'\
+'$back $(git_prompt_status)%{$reset_color%}'\
+'$back%{$fg_bold[magenta]%}$(git_prompt_info)%{$reset_color%}'\
+'$back$(git_prompt_ahead)$reset_color'\
+'$back%(!.#.>)$reset_color '
 
 PROMPT2='%{$fg[red]%}%_ %{$reset_color%}'
 PROMPT3='%{$fg[red]%}... %{$reset_color%}'
