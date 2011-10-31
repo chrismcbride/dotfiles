@@ -77,6 +77,7 @@ set background=dark
 
 "compile coffee script when file is written
 au BufWritePost *.coffee silent CoffeeMake!
+au BufRead,BufNewFile *.tpl setlocal ft=html
 
 autocmd FileType php call PhpSettings()
 
