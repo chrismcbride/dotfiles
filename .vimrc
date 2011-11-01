@@ -49,7 +49,7 @@ nnoremap <silent> <F8> :TagbarToggle<CR>
 noremap <silent> <F2> :NERDTreeToggle<CR>
 
 "refresh the command list
-nnoremap <silent> <F5> :TlistUpdate<CR>:CommandTFlush<CR>
+nnoremap <silent> <F5> :CommandTFlush<CR>
 
 "open the file list
 nnoremap <silent> <Leader><Leader> :CommandT<CR>
