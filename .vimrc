@@ -77,6 +77,7 @@ set background=dark
 
 "compile coffee script when file is written
 au BufWritePost *.coffee silent CoffeeMake!
+"make *.tpl highlight as html (needed for matchit to work)
 au BufRead,BufNewFile *.tpl setlocal ft=html
 
 autocmd FileType php call PhpSettings()
@@ -131,6 +132,8 @@ set cursorline		"show where the cursor is
 set ttyfast
 set gdefault		"all s// commands are global
 set noexpandtab
+set tabstop=4
+set shiftwidth=4
 set completeopt =menu,menuone,longest "get rid of scratch pad
 set wildignore+=*.git,*.png,*.gif,*.jpg,tags
 set magic	"make regexs more perl like
@@ -167,7 +170,7 @@ let g:miniBufExplUseSingleClick = 1
 let g:miniBufExplCheckDupeBufs = 0
 let g:miniBufExplVSplit = 30   " column width in chars
 let g:miniBufExplSplitBelow=1  " Put new window on right
-hi MBENormal guifg=gray ctermfg=gray 
+hi MBENormal guifg=gray ctermfg=gray
 
 "fix bug with easymotion
 if has('gui_running')
@@ -175,3 +178,7 @@ if has('gui_running')
 else
 	hi EasyMotionShade ctermfg=darkgrey ctermbg=black
 endif
+
+"highligh indents with whitespace
+highlight ExtraWhitespace ctermbg=red guibg=red
+au BufEnter * match ExtraWhitespace /^\s\{-}\zs[ ]\+/
