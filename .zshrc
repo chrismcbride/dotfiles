@@ -33,8 +33,10 @@ autoload -U add-zsh-hook
 add-zsh-hook chpwd do_ls_on_chdir
 
 function do_ls_on_chdir() {
-        ls; 
+	ls; 
 }
+
+alias bc='bc -q -l';
 
 # Customize to your needs...
 export PATH=/usr/local/bin:/usr/local/sbin/:/bin:/sbin:/usr/bin:/usr/sbin:/home/chris/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
