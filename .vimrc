@@ -168,7 +168,7 @@ let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplUseSingleClick = 1
 let g:miniBufExplCheckDupeBufs = 0
-let g:miniBufExplVSplit = 30   " column width in chars
+let g:miniBufExplVSplit = 40   " column width in chars
 let g:miniBufExplSplitBelow=1  " Put new window on right
 hi MBENormal guifg=gray ctermfg=gray
 
