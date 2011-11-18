@@ -121,6 +121,7 @@ set number		"line numbers
 set hlsearch		"Highlight search
 set fileencodings=utf-8 
 set wildmenu		"autocomplete menu
+set wildmode=longest:full
 set autoread 		"read file from disk when it changes
 :set cpoptions+=$	"show a dollar sign when doing a change command
 set nowrap		"dont word wrap
@@ -171,6 +172,9 @@ let g:miniBufExplCheckDupeBufs = 0
 let g:miniBufExplVSplit = 40   " column width in chars
 let g:miniBufExplSplitBelow=1  " Put new window on right
 hi MBENormal guifg=gray ctermfg=gray
+
+"easy motion
+let g:EasyMotion_leader_key = '<Leader>'
 
 "fix bug with easymotion
 if has('gui_running')
