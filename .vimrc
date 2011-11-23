@@ -121,7 +121,7 @@ set number		"line numbers
 set hlsearch		"Highlight search
 set fileencodings=utf-8 
 set wildmenu		"autocomplete menu
-set wildmode=longest:full
+set wildmode=list:longest
 set autoread 		"read file from disk when it changes
 :set cpoptions+=$	"show a dollar sign when doing a change command
 set nowrap		"dont word wrap
