@@ -14,24 +14,23 @@ import XMonad.Layout.MouseResizableTile
 import XMonad.StackSet as W (shift, greedyView)
 import System.IO
 
+
 main = do
 	xmproc <- spawnPipe "/usr/bin/xmobar -x 0 ~/.xmobarrc"
-	xmonad $ defaultConfig {
-		manageHook = manageDocks <+> ( myManageHooks <+> manageHook defaultConfig ),
-		layoutHook = smartBorders( avoidStruts  $ layout),
-		workspaces = myWorkspaces,
-		logHook = workspaceNamesPP defaultPP 
-			{ ppOutput = hPutStrLn xmproc
-			, ppCurrent = xmobarColor "yellow" "" . wrap "[" "]"
-			, ppVisible = xmobarColor "red" "" . wrap "(" ")"
-			, ppUrgent = xmobarColor "blue" "gray"
-			, ppSep = " | "
-			, ppLayout = xmobarColor "orange" "" . trim
-			, ppTitle = xmobarColor "green" "" . trim
-			} >>= dynamicLogWithPP >> takeTopFocus >> updatePointer (Relative 0.25 0.25)
-		, modMask = mod4Mask	 -- Rebind Mod to the Windows key
-		, startupHook = setWMName "LG3D" --java hack
-		}  `additionalKeys` (
+	xmonad $ addKeyBindings $ myConfig xmproc
+
+--setWorkspaceName myWorkspaces!!0 "chrome"	
+
+myConfig xmproc = defaultConfig {
+			manageHook = manageDocks <+> ( myManageHooks <+> manageHook defaultConfig ),
+			layoutHook = smartBorders( avoidStruts (myLayout)),
+			workspaces = myWorkspaces,
+			logHook = myLoghook xmproc,
+			modMask = mod4Mask,	 -- Rebind Mod to the Windows key
+			startupHook = setWMName "LG3D" --java hack
+		}  
+		
+addKeyBindings config = config `additionalKeys` (
 			[ ((mod4Mask .|. shiftMask, xK_l), spawn "xscreensaver-command -lock")
 			, ((mod4Mask, xK_p), spawn "dmenu_run")
 			, ((controlMask, xK_Print), spawn "sleep 0.2; scrot -s")
@@ -51,13 +50,26 @@ main = do
 			]
 			++
 			[((m .|. mod4Mask, k), windows $ f i)                                                                           
-				| (i, k) <- zip (myWorkspaces) ([xK_1 .. xK_9] ++ [xK_0, xK_minus, xK_equal])
+				| (i, k) <- zip (mySecondWorkspaces) [xK_0, xK_minus, xK_equal]
 				, (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
 		)
 		`removeKeys`
 		[ (mod4Mask, xK_q) ]
 
-myWorkspaces = ["1:chrome","2:vim","3:personal","4:git","5","6","7","8","9","10:VM","11","12:VM"]
+myLoghook xmproc = workspaceNamesPP defaultPP { 
+					ppOutput = hPutStrLn xmproc,
+					ppCurrent = xmobarColor "yellow" "" . wrap "[" "]",
+					ppVisible = xmobarColor "red" "" . wrap "(" ")",
+					ppUrgent = xmobarColor "blue" "gray",
+					ppSep = " | ",
+					ppLayout = xmobarColor "orange" "" . trim,
+					ppTitle = xmobarColor "green" "" . trim
+				} >>= dynamicLogWithPP >> takeTopFocus >> updatePointer (Relative 0.25 0.25)
+
+myWorkspaces :: [WorkspaceId]
+myWorkspaces = myFirstWorkspaces ++ mySecondWorkspaces
+myFirstWorkspaces = ["1","2:vim","3:personal","4:git","5","6","7","8","9"]
+mySecondWorkspaces = ["10:VM","11","12:VM"]
 
 myManageHooks = composeAll . concat $
 	[ [ isFullscreen --> doFullFloat ]
@@ -66,12 +78,12 @@ myManageHooks = composeAll . concat $
 	,  [(title =? "Preferences") --> doFloat] 
 	,  [(className =? "Gimp") --> doFloat ] ]
 
-layout = mouseResizableTile {
-			masterFrac  = 0.6,
-			draggerType = FixedDragger 0 3
-		} ||| 
-		mouseResizableTile {
-			masterFrac = 0.6,
-			draggerType = FixedDragger 0 3,
-			isMirrored = True
-		} ||| Full 
+myLayout = mouseResizableTile {
+				masterFrac  = 0.6,
+				draggerType = FixedDragger 0 3
+			} 
+			|||	mouseResizableTile {
+				masterFrac = 0.6,
+				draggerType = FixedDragger 0 3,
+				isMirrored = True
+			} ||| Full 
