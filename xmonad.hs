@@ -12,6 +12,7 @@ import XMonad.Actions.WorkspaceNames
 import XMonad.Actions.UpdatePointer
 import XMonad.Layout.MouseResizableTile
 import XMonad.StackSet as W (shift, greedyView)
+import XMonad.Actions.SpawnOn
 import System.IO
 
 
@@ -19,17 +20,27 @@ main = do
 	xmproc <- spawnPipe "/usr/bin/xmobar -x 0 ~/.xmobarrc"
 	xmonad $ addKeyBindings $ myConfig xmproc
 
---setWorkspaceName myWorkspaces!!0 "chrome"	
-
 myConfig xmproc = defaultConfig {
 			manageHook = manageDocks <+> ( myManageHooks <+> manageHook defaultConfig ),
 			layoutHook = smartBorders( avoidStruts (myLayout)),
 			workspaces = myWorkspaces,
 			logHook = myLoghook xmproc,
 			modMask = mod4Mask,	 -- Rebind Mod to the Windows key
-			startupHook = setWMName "LG3D" --java hack
+			startupHook = do
+				setWMName "LG3D" --java hack
+				setWorkspaceName (myWorkspaces!!0) "chrome"
+				setWorkspaceName (myWorkspaces!!1) "vim"
+				setWorkspaceName (myWorkspaces!!2) "personal"
+				setWorkspaceName (myWorkspaces!!3) "git"
+				setWorkspaceName (myWorkspaces!!11) "VM"
+				spawnOn (myWorkspaces!!0) "google-chrome"
+				-- spawnOn (myWorkspaces!!1) "rjmgvim.sh"
+				-- spawnOn (myWorkspaces!!2) "chromium-browser"
+				-- spawnOn (myWorkspaces!!3) "terminator"
+				-- spawnOn (myWorkspaces!!11) "truecrypt"
+				-- spawnOn (myWorkspaces!!11) "virtualbox"
 		}  
-		
+
 addKeyBindings config = config `additionalKeys` (
 			[ ((mod4Mask .|. shiftMask, xK_l), spawn "xscreensaver-command -lock")
 			, ((mod4Mask, xK_p), spawn "dmenu_run")
@@ -50,7 +61,7 @@ addKeyBindings config = config `additionalKeys` (
 			]
 			++
 			[((m .|. mod4Mask, k), windows $ f i)                                                                           
-				| (i, k) <- zip (mySecondWorkspaces) [xK_0, xK_minus, xK_equal]
+				| (i, k) <- zip (drop 9 myWorkspaces) [xK_0, xK_minus, xK_equal]
 				, (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
 		)
 		`removeKeys`
@@ -67,9 +78,7 @@ myLoghook xmproc = workspaceNamesPP defaultPP {
 				} >>= dynamicLogWithPP >> takeTopFocus >> updatePointer (Relative 0.25 0.25)
 
 myWorkspaces :: [WorkspaceId]
-myWorkspaces = myFirstWorkspaces ++ mySecondWorkspaces
-myFirstWorkspaces = ["1","2:vim","3:personal","4:git","5","6","7","8","9"]
-mySecondWorkspaces = ["10:VM","11","12:VM"]
+myWorkspaces = map show [1..12]
 
 myManageHooks = composeAll . concat $
 	[ [ isFullscreen --> doFullFloat ]
