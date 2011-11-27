@@ -12,7 +12,8 @@ import XMonad.Actions.WorkspaceNames
 import XMonad.Actions.UpdatePointer
 import XMonad.Layout.MouseResizableTile
 import XMonad.StackSet as W (shift, greedyView)
-import XMonad.Actions.SpawnOn
+import XMonad.Actions.SpawnOn (spawnOn)
+import XMonad.Layout.Tabbed
 import System.IO
 
 
@@ -34,11 +35,6 @@ myConfig xmproc = defaultConfig {
 				setWorkspaceName (myWorkspaces!!3) "git"
 				setWorkspaceName (myWorkspaces!!11) "VM"
 				spawnOn (myWorkspaces!!0) "google-chrome"
-				-- spawnOn (myWorkspaces!!1) "rjmgvim.sh"
-				-- spawnOn (myWorkspaces!!2) "chromium-browser"
-				-- spawnOn (myWorkspaces!!3) "terminator"
-				-- spawnOn (myWorkspaces!!11) "truecrypt"
-				-- spawnOn (myWorkspaces!!11) "virtualbox"
 		}  
 
 addKeyBindings config = config `additionalKeys` (
@@ -70,7 +66,7 @@ addKeyBindings config = config `additionalKeys` (
 myLoghook xmproc = workspaceNamesPP defaultPP { 
 					ppOutput = hPutStrLn xmproc,
 					ppCurrent = xmobarColor "yellow" "" . wrap "[" "]",
-					ppVisible = xmobarColor "red" "" . wrap "(" ")",
+					ppVisible = xmobarColor "#999900" "" . wrap "(" ")",
 					ppUrgent = xmobarColor "blue" "gray",
 					ppSep = " | ",
 					ppLayout = xmobarColor "orange" "" . trim,
@@ -95,4 +91,4 @@ myLayout = mouseResizableTile {
 				masterFrac = 0.6,
 				draggerType = FixedDragger 0 3,
 				isMirrored = True
-			} ||| Full 
+			} ||| simpleTabbed
