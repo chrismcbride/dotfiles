@@ -27,14 +27,7 @@ myConfig xmproc = defaultConfig {
 			workspaces = myWorkspaces,
 			logHook = myLoghook xmproc,
 			modMask = mod4Mask,	 -- Rebind Mod to the Windows key
-			startupHook = do
-				setWMName "LG3D" --java hack
-				setWorkspaceName (myWorkspaces!!0) "chrome"
-				setWorkspaceName (myWorkspaces!!1) "vim"
-				setWorkspaceName (myWorkspaces!!2) "personal"
-				setWorkspaceName (myWorkspaces!!3) "git"
-				setWorkspaceName (myWorkspaces!!11) "VM"
-				spawnOn (myWorkspaces!!0) "google-chrome"
+			startupHook = myStartuphook
 		}  
 
 addKeyBindings config = config `additionalKeys` (
@@ -63,6 +56,17 @@ addKeyBindings config = config `additionalKeys` (
 		`removeKeys`
 		[ (mod4Mask, xK_q) ]
 
+myStartuphook =  do
+	setWMName "LG3D" --java hack
+	setWorkspaceName (myWorkspaces!!0) "chrome"
+	setWorkspaceName (myWorkspaces!!1) "vim"
+	setWorkspaceName (myWorkspaces!!2) "personal"
+	setWorkspaceName (myWorkspaces!!3) "git"
+	setWorkspaceName (myWorkspaces!!11) "VM"
+	spawnOn (myWorkspaces!!0) "google-chrome"
+	spawnOn (myWorkspaces!!11) "truecrypt"
+	spawnOn (myWorkspaces!!11) "virtualbox"
+
 myLoghook xmproc = workspaceNamesPP defaultPP { 
 					ppOutput = hPutStrLn xmproc,
 					ppCurrent = xmobarColor "yellow" "" . wrap "[" "]",
@@ -78,10 +82,13 @@ myWorkspaces = map show [1..12]
 
 myManageHooks = composeAll . concat $
 	[ [ isFullscreen --> doFullFloat ]
-	,  [(className =? "Firefox" <&&> resource =? "Dialog") --> doFloat] 
-	,  [(title =? "volumeicon") --> doFloat]
-	,  [(title =? "Preferences") --> doFloat] 
-	,  [(className =? "Gimp") --> doFloat ] ]
+	, [(className =? "Firefox" <&&> appName =? "Dialog") --> doFloat] 
+	, [(className =? "Iceweasel" <&&> appName =? "Dialog") --> doFloat] 
+	, [(stringProperty "WM_WINDOW_ROLE" =? "Preferences") --> doFloat] 
+	, [(title =? "volumeicon") --> doFloat]
+	, [(title =? "Preferences") --> doFloat] 
+	, [(className =? "Gimp") --> doFloat ] 
+	, [(className =? "Truecrypt" <||> className =? "VirtualBox") --> doShift (myWorkspaces!!11) ] ]
 
 myLayout = mouseResizableTile {
 				masterFrac  = 0.6,
