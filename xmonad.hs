@@ -33,12 +33,7 @@ myConfig xmproc = defaultConfig {
 
 addKeyBindings config = 
 			config `removeKeys`	
-				[ (mod4Mask, xK_q)
-				, (mod4Mask, xK_j)
-				, (mod4Mask, xK_k)
-				, (mod4Mask, xK_h)
-				, (mod4Mask, xK_l)
-				]
+				[ (mod4Mask, xK_q) ]
 			`additionalKeys` (
 				[ ((mod4Mask .|. shiftMask, xK_z), spawn "xscreensaver-command -lock")
 				, ((mod4Mask, xK_p), spawn "dmenu_run")
@@ -55,16 +50,14 @@ addKeyBindings config =
 				, ((0 , 0x1008ff13), spawn "amixer -q set Master 1+ unmute")
 				, ((mod4Mask, xK_i), sendMessage ShrinkSlave) -- %! Shrink a slave area
 				, ((mod4Mask, xK_u), sendMessage ExpandSlave) -- %! Expand a slave area
-				, ((mod4Mask, xK_y), sendMessage Shrink) 
-				, ((mod4Mask, xK_o), sendMessage Expand) 
-				, ((mod4Mask,                 xK_l), sendMessage $ Go R)
-				, ((mod4Mask,                 xK_h), sendMessage $ Go L)
-				, ((mod4Mask,                 xK_k), sendMessage $ Go U)
-				, ((mod4Mask,                 xK_j), sendMessage $ Go D)
-				, ((mod4Mask .|. shiftMask, xK_l), sendMessage $ Swap R)
-				, ((mod4Mask .|. shiftMask, xK_h), sendMessage $ Swap L)
-				, ((mod4Mask .|. shiftMask, xK_k), sendMessage $ Swap U)
-				, ((mod4Mask .|. shiftMask, xK_j), sendMessage $ Swap D)
+				, ((mod4Mask,                 xK_Right), sendMessage $ Go R)
+				, ((mod4Mask,                 xK_Left), sendMessage $ Go L)
+				, ((mod4Mask,                 xK_Up), sendMessage $ Go U)
+				, ((mod4Mask,                 xK_Down), sendMessage $ Go D)
+				, ((mod4Mask .|. shiftMask, xK_Right), sendMessage $ Swap R)
+				, ((mod4Mask .|. shiftMask, xK_Left), sendMessage $ Swap L)
+				, ((mod4Mask .|. shiftMask, xK_Up), sendMessage $ Swap U)
+				, ((mod4Mask .|. shiftMask, xK_Down), sendMessage $ Swap D)
 				, ((0, xK_Print), spawn "scrot")
 				]
 				++
