@@ -4,7 +4,7 @@ Config { font = "-*-Fixed-Bold-R-Normal-*-13-*-*-*-*-*-*-*"
        , position = TopW L 100
        , lowerOnStart = True
        , commands = [ Run Weather "KPHL" ["-t"," <tempF>F <skyCondition>","-L","64","-H","77","--normal","green","--high","red","--low","lightblue"] 1800
-                    , Run MultiCpu ["-L","3","-H","50","--normal","green","--high","red"i, "-t", "Cpu0: <total0> Cpu1: <total1> Cpu2: <total2> Cpu3: <total3>"] 10
+                    , Run MultiCpu ["-L","3","-H","50","--normal","green","--high","red", "-t", "Cpu0: <total0> Cpu1: <total1> Cpu2: <total2> Cpu3: <total3>"] 10
                     , Run Memory ["-t","Mem: <usedratio>%"] 10
                     , Run Date "%a %b %_d %l:%M" "date" 10
                     ]
