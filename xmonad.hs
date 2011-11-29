@@ -15,6 +15,7 @@ import XMonad.StackSet as W (shift, greedyView)
 import XMonad.Actions.SpawnOn (spawnOn)
 import XMonad.Layout.Tabbed
 import XMonad.Layout.WindowNavigation
+import XMonad.Util.WorkspaceCompare
 import System.IO
 
 
@@ -80,7 +81,7 @@ myStartuphook =  do
 myLoghook xmproc = workspaceNamesPP defaultPP { 
 					ppOutput = hPutStrLn xmproc,
 					ppCurrent = xmobarColor "yellow" "" . wrap "[" "]",
-					ppVisible = xmobarColor "#999900" "" . wrap "(" ")",
+					ppVisible = xmobarColor "#999900" "" . wrap "[" "]",
 					ppUrgent = xmobarColor "blue" "gray",
 					ppSep = " | ",
 					ppLayout = xmobarColor "orange" "" . trim,
