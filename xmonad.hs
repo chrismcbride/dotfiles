@@ -101,7 +101,8 @@ myManageHooks = composeAll . concat $
 	, [(className =? "Gimp") --> doFloat ] 
 	, [(className =? "Truecrypt" <||> className =? "VirtualBox") --> doShift (myWorkspaces!!11) ] ]
 
-myLayout = mouseResizableTile {
+myLayout =  simpleTabbed |||
+			mouseResizableTile {
 				masterFrac  = 0.6,
 				draggerType = FixedDragger 0 5
 			} 
@@ -109,4 +110,4 @@ myLayout = mouseResizableTile {
 				masterFrac = 0.6,
 				draggerType = FixedDragger 0 5,
 				isMirrored = True
-			} ||| simpleTabbed
+			} 
