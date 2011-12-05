@@ -1,13 +1,3 @@
-function dirStack(){
-	OUT='';
-	NUM=1;
-	for X in $(dirs | cut -d ' ' -f2-10); do
-		OUT="$OUT$1%B$NUM:%b$1$X ";
-		(( NUM=NUM+1 ))
-	done
-	echo $OUT;
-}
-
 ZSH_THEME_GIT_PROMPT_ADDED=""
 ZSH_THEME_GIT_PROMPT_MODIFIED=""
 ZSH_THEME_GIT_PROMPT_DELETED=""
@@ -25,8 +15,7 @@ local user_color='blue'
 local back="${BG[237]}"
 test $UID -eq 0 && user_color='red'
 
-PROMPT='$(dirStack %{$back%})
-%{$back%}%B%!%b%{$back%} %{$fg_bold[$user_color]%}%~%{$reset_color%}'\
+PROMPT='%{$back%}%B%!%b%{$back%} %{$fg_bold[$user_color]%}%~%{$reset_color%}'\
 '%{$back%} $(git_prompt_status)%{$reset_color%}'\
 '%{$back%}%{$fg_bold[magenta]%}$(git_prompt_info)%{$reset_color%}'\
 '%{$back%}$(git_prompt_ahead)%{$reset_color%}'\
