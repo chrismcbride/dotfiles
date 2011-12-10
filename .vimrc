@@ -176,6 +176,10 @@ hi MBENormal guifg=gray ctermfg=gray
 "easy motion
 let g:EasyMotion_leader_key = '<Leader>'
 
+"vimclojure
+let g:vimclojure#ParenRainbow = 1
+let g:vimclojure#DynamicHighlighting = 1
+
 "fix bug with easymotion
 if has('gui_running')
 	hi EasyMotionShade guifg=darkgrey guibg=black
