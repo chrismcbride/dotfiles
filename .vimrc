@@ -190,4 +190,3 @@ endif
 "highligh indents with whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
 au BufEnter *.[^c][^l][^j] match ExtraWhitespace /^\s\{-}\zs[ ]\+/
-au FileType clojure match none
