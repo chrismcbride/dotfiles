@@ -179,6 +179,7 @@ let g:EasyMotion_leader_key = '<Leader>'
 "vimclojure
 let g:vimclojure#ParenRainbow = 1
 let g:vimclojure#DynamicHighlighting = 1
+let vimclojure#WantNailgun = 1
 
 "fix bug with easymotion
 if has('gui_running')
