@@ -97,7 +97,7 @@ if has("gui_running")
 	highlight StatusLine guibg=darkred
 	highlight StatusLineNC guifg=purple
 	highlight Comment guifg=salmon
-	set guifont=DejaVu\ Sans\ Mono\ 8 
+	set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 8 
 	" Remove toolbar
 	set guioptions-=T	
 	"remove menu
@@ -139,19 +139,6 @@ set completeopt =menu,menuone,longest "get rid of scratch pad
 set wildignore+=*.git,*.png,*.gif,*.jpg,tags
 set magic	"make regexs more perl like
 
-"statusline
-set statusline=   " clear the statusline for when vimrc is reloaded
-set statusline+=%-3.3n\                      " buffer number
-set statusline+=%f\                          " file name
-set statusline+=%h%m%r%w                     " flags
-set statusline+=[%{strlen(&ft)?&ft:'none'},  " filetype
-set statusline+=%{strlen(&fenc)?&fenc:&enc}, " encoding
-set statusline+=%{&fileformat}]              " file format
-set statusline+=%=                           " right align
-set statusline+=%{synIDattr(synID(line('.'),col('.'),1),'name')}\  " highlight
-set statusline+=%b,0x%-8B\                   " current char
-set statusline+=%-14.(%l,%c%V%)\ %<%P        " offset
-
 "command t options
 let g:CommandTMatchWindowAtTop = 1
 
@@ -179,7 +166,12 @@ let g:EasyMotion_leader_key = '<Leader>'
 "vimclojure
 let g:vimclojure#ParenRainbow = 1
 let g:vimclojure#DynamicHighlighting = 1
-let vimclojure#WantNailgun = 1
+let vimclojure#HighlightBuiltins=1
+let vimclojure#HighlightContrib=1
+"let vimclojure#WantNailgun = 1
+
+"powerline
+let g:Powerline_symbols='fancy'
 
 "fix bug with easymotion
 if has('gui_running')
