@@ -21,6 +21,11 @@ call pathogen#infect()
 call pathogen#helptags()
 syntax on
 
+"Trying Vundle
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+
 "make thee comma the leader, and swap the it with ctrl-e
 nnoremap <C-e> ,
 let mapleader = ","
@@ -47,13 +52,6 @@ nnoremap <silent> <F8> :TagbarToggle<CR>
 
 "show the nerdtree
 noremap <silent> <F2> :NERDTreeToggle<CR>
-
-"refresh the command list
-nnoremap <silent> <F5> :CommandTFlush<CR>
-
-"open the file list
-nnoremap <silent> <Leader><Leader> :CommandT<CR>
-nnoremap <silent> <Leader><space> :CommandTBuffer<CR>
 
 "make the vim search regex more like perl
 nnoremap / /\v
@@ -139,8 +137,16 @@ set completeopt =menu,menuone,longest "get rid of scratch pad
 set wildignore+=*.git,*.png,*.gif,*.jpg,tags
 set magic	"make regexs more perl like
 
-"command t options
-let g:CommandTMatchWindowAtTop = 1
+"ctrlp
+Bundle 'kien/ctrlp.vim'
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_max_height = 20
+let g:ctrlp_regexp_search = 1
+let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files', 'find %s -type f']
+let g:ctrlp_dont_split = ''
+let g:ctrlp_arg_map = 0
+let g:ctrlp_open_multi = '1'
+let g:ctrlp_extensions = ['tag']
 
 "taqbar
 let g:tagbar_autoclose = 1
