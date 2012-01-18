@@ -1,29 +1,29 @@
 set runtimepath=~/.vim,/var/lib/vim/addons,/usr/share/vim/vimfiles,/usr/share/vim/vim72,/usr/share/vim
 
-" Normally we use vim-extensions. If you want true vi-compatibility
-" remove change the following statements
 set nocompatible        " Use Vim defaults instead of 100% vi compatibility
-set backspace=indent,eol,start  " more powerful backspacing
-
-" Now we set some defaults for the editor
-set history=50          " keep 50 lines of command line history
-set ruler               " show the cursor position all the time
-
-" modelines have historically been a source of security/resource
-" vulnerabilities -- disable by default, even when 'nocompatible' is set
-set nomodeline
-
-" Suffixes that get lower priority when doing tab completion for filenames.
-" These are files we are not likely to want to edit or read.
-set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
-
-call pathogen#infect()
-call pathogen#helptags()
 syntax on
 
-"Trying Vundle
+"Set up Vundle
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
+
+"Bundles!
+Bundle 'scrooloose/nerdtree'
+Bundle 'kien/ctrlp.vim'
+Bundle 'fholgado/minibufexpl.vim'
+Bundle 'shawncplus/phpcomplete.vim'
+Bundle 'StanAngeloff/php.vim'
+Bundle 'scrooloose/syntastic'
+Bundle 'majutsushi/tagbar'
+Bundle 'vim-scripts/VimClojure'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'tpope/vim-commentary'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tsaleh/vim-matchit'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'tpope/vim-surround'
+Bundle 'vim-scripts/darkspectrum'
 
 
 "make thee comma the leader, and swap the it with ctrl-e
@@ -136,9 +136,13 @@ set shiftwidth=4
 set completeopt =menu,menuone,longest "get rid of scratch pad
 set wildignore+=*.git,*.png,*.gif,*.jpg,tags
 set magic	"make regexs more perl like
+set backspace=indent,eol,start  " more powerful backspacing
+set history=50          " keep 50 lines of command line history
+set ruler               " show the cursor position all the time
+set nomodeline
+set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc " Suffixes that get lower priority when doing tab completion for filenames.
 
 "ctrlp
-Bundle 'kien/ctrlp.vim'
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_max_height = 20
 let g:ctrlp_regexp_search = 1
