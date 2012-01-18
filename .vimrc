@@ -22,8 +22,10 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tsaleh/vim-matchit'
 Bundle 'Lokaltog/vim-powerline'
+" ^^^ This requires patched fonts
 Bundle 'tpope/vim-surround'
 Bundle 'vim-scripts/darkspectrum'
+Bundle 'vim-scripts/JSON.vim'
 
 
 "make thee comma the leader, and swap the it with ctrl-e
@@ -75,6 +77,13 @@ set background=dark
 
 "compile coffee script when file is written
 au BufWritePost *.coffee silent CoffeeMake!
+
+"json.vim syntax
+au! BufRead,BufNewFile *.json set filetype=json
+augroup json_autocmd
+	autocmd FileType json set foldmethod=syntax
+augroup END
+
 "make *.tpl highlight as html (needed for matchit to work)
 au BufRead,BufNewFile *.tpl setlocal ft=html
 
@@ -157,9 +166,11 @@ let g:tagbar_autoclose = 1
 let g:tagbar_left = 1
 
 "syntastic options
+"This requires jsonlint and jshint
 let s:php_executable = "/usr/bin/php"
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=1
+let g:syntastic_check_on_open=1
 
 "minibuf options
 let g:miniBufExplMapWindowNavVim = 1
