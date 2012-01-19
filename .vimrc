@@ -50,6 +50,10 @@ noremap <F4> <ESC>:call VimGrepper(expand("<cword>"))<CR>
 "search for a word
 command! -nargs=1 Vg call VimGrepper( '<args>' )
 
+"build ctags
+command! -nargs=0 Ctags :
+	\ exe "!ctags -R --exclude=.git --exclude=\\*.js --tag-relative=yes --PHP-kinds=+cf-v --regex-PHP='/abstract\s+class\s+([^ ]+)/\1/c/' --regex-PHP='/interface\s+([^ ]+)/\1/c/' --regex-PHP='/(public\s+|static\s+|abstract\s+|protected\s+|private\s+)function\s+\&?\s*([^ (]+)/\2/f/'" 
+
 function! VimGrepper(arg)
 	:execute "noautocmd vimgrep /" . a:arg . "/j **" 
 	:execute "botright cwindow"
@@ -121,6 +125,7 @@ set hidden             " Hide buffers when they are abandoned
 set number		"line numbers
 set hlsearch		"Highlight search
 set fileencodings=utf-8 
+set encoding=utf-8
 set wildmenu		"autocomplete menu
 set wildmode=list:longest
 set autoread 		"read file from disk when it changes
@@ -148,7 +153,7 @@ set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.i
 "ctrlp
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_use_caching = 0
-let g:ctrlp_max_height = 20
+let g:ctrlp_max_height = 30
 let g:ctrlp_regexp_search = 1
 let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files', 'find %s -type f']
 let g:ctrlp_dont_split = ''
@@ -158,6 +163,15 @@ let g:ctrlp_extensions = ['tag']
 
 "taqbar
 let g:tagbar_left = 1
+let g:tagbar_type_php  = {
+	\ 'ctagstype' : 'php',
+	\ 'kinds'     : [
+		\ 'i:interfaces',
+		\ 'c:classes',
+		\ 'd:constant definitions',
+		\ 'f:functions',
+	\ ]
+\ }
 "show the tag list
 nnoremap <silent> <F8> :TagbarOpenAutoClose<CR>
 
