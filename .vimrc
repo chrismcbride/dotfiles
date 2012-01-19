@@ -147,6 +147,7 @@ set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.i
 
 "ctrlp
 let g:ctrlp_working_path_mode = 0
+let g:ctrlp_use_caching = 0
 let g:ctrlp_max_height = 20
 let g:ctrlp_regexp_search = 1
 let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files', 'find %s -type f']
