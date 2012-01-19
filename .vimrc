@@ -1,19 +1,19 @@
-set runtimepath=~/.vim,/var/lib/vim/addons,/usr/share/vim/vimfiles,/usr/share/vim/vim72,/usr/share/vim
-
-set nocompatible        " Use Vim defaults instead of 100% vi compatibility
-syntax on
-
 "Set up Vundle
-set rtp+=~/.vim/bundle/vundle/
+set nocompatible        " Use Vim defaults instead of 100% vi compatibility
+filetype off
+set runtimepath=~/.vim,/var/lib/vim/addons,/usr/share/vim/vimfiles,/usr/share/vim/vim72,/usr/share/vim,~/.vim/bundle/vundle
 call vundle#rc()
 
 "Bundles!
+Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 Bundle 'fholgado/minibufexpl.vim'
 Bundle 'shawncplus/phpcomplete.vim'
+" ^^^ This requires a symlink in the autoload folder
 Bundle 'StanAngeloff/php.vim'
 Bundle 'scrooloose/syntastic'
+" ^^^ This requires syntax checkers to be installed (php, jshint)
 Bundle 'majutsushi/tagbar'
 Bundle 'vim-scripts/VimClojure'
 Bundle 'kchmck/vim-coffee-script'
@@ -28,6 +28,11 @@ Bundle 'vim-scripts/darkspectrum'
 Bundle 'vim-scripts/JSON.vim'
 Bundle 'tpope/vim-eunuch'
 Bundle 'tpope/vim-afterimage'
+Bundle 'pangloss/vim-javascript'
+Bundle 'ervandew/supertab'
+
+filetype plugin indent on
+syntax on
 
 "make thee comma the leader, and swap the it with ctrl-e
 nnoremap <C-e> ,
@@ -66,9 +71,6 @@ imap jj <Esc>l
 "shift insert pastes the x11 clipboard
 map <S-Insert> <MiddleMouse>
 map! <S-Insert> <MiddleMouse>
-
-"ctrl-tab omnicompletes
-inoremap <C-tab> <C-x><C-o>
 
 ""abbrevation: %% -> current dir of file
 cabbr <expr> %% expand('%:p:h')
@@ -194,6 +196,12 @@ let vimclojure#HighlightContrib=1
 
 "powerline
 let g:Powerline_symbols='fancy'
+
+"supertab
+let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabContextDefaultCompletionType = "<c-x><c-]>"
+let g:SuperTabMappingForward = '<c-tab>'
+let g:SuperTabMappingBackward = '<c-s-tab>'
 
 "fix bug with easymotion
 if has('gui_running')
