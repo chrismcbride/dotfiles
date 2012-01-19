@@ -55,12 +55,6 @@ function! VimGrepper(arg)
 	:execute "botright cwindow"
 endfunction
 
-"show the tag list
-nnoremap <silent> <F8> :TagbarToggle<CR>
-
-"show the nerdtree
-noremap <silent> <F2> :NERDTreeToggle<CR>
-
 "make the vim search regex more like perl
 nnoremap / /\v
 vnoremap / /\v
@@ -74,9 +68,6 @@ map! <S-Insert> <MiddleMouse>
 
 ""abbrevation: %% -> current dir of file
 cabbr <expr> %% expand('%:p:h')
-
-" If using a dark background within the editing area and syntax highlighting
-set background=dark
 
 "compile coffee script when file is written
 au BufWritePost *.coffee silent CoffeeMake!
@@ -119,6 +110,7 @@ if has("gui_running")
 	set guioptions-=l
 endif
 
+set background=dark
 set showcmd		" Show (partial) command in status line.
 set showmatch		" Show matching brackets.
 set ignorecase		" Do case insensitive matching
@@ -126,7 +118,6 @@ set smartcase		" Do smart case matching
 set incsearch		" Incremental search
 set autowrite		" Automatically save before commands like :next and :make
 set hidden             " Hide buffers when they are abandoned
-"set mouse=a		" Enable mouse usage (all modes)
 set number		"line numbers
 set hlsearch		"Highlight search
 set fileencodings=utf-8 
@@ -165,8 +156,9 @@ let g:ctrlp_open_multi = '1'
 let g:ctrlp_extensions = ['tag']
 
 "taqbar
-let g:tagbar_autoclose = 1
 let g:tagbar_left = 1
+"show the tag list
+nnoremap <silent> <F8> :TagbarOpenAutoClose<CR>
 
 "syntastic options
 "This requires jsonlint and jshint
@@ -196,6 +188,9 @@ let vimclojure#HighlightContrib=1
 
 "powerline
 let g:Powerline_symbols='fancy'
+
+"nerdtree
+noremap <silent> <F2> :NERDTreeToggle<CR>
 
 "supertab
 let g:SuperTabDefaultCompletionType = "context"
