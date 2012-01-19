@@ -26,7 +26,8 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'tpope/vim-surround'
 Bundle 'vim-scripts/darkspectrum'
 Bundle 'vim-scripts/JSON.vim'
-
+Bundle 'tpope/vim-eunuch'
+Bundle 'tpope/vim-afterimage'
 
 "make thee comma the leader, and swap the it with ctrl-e
 nnoremap <C-e> ,
@@ -143,7 +144,7 @@ set noexpandtab
 set tabstop=4
 set shiftwidth=4
 set completeopt =menu,menuone,longest "get rid of scratch pad
-set wildignore+=*.git,*.png,*.gif,*.jpg,tags
+set wildignore+=*.git,*.jpg,tags
 set magic	"make regexs more perl like
 set backspace=indent,eol,start  " more powerful backspacing
 set history=50          " keep 50 lines of command line history
