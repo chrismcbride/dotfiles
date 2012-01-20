@@ -38,6 +38,7 @@ function do_ls_on_chdir() {
 }
 
 alias bc='bc -q -l';
+alias rm='rm -I';
 alias glog="git log --pretty=format:'%C(yellow)%h%Creset - %C(red)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=short --name-status"
 
 gdelbranch() { git branch -d "$@" && git push origin :heads/"$@" }
