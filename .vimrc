@@ -30,6 +30,7 @@ Bundle 'tpope/vim-eunuch'
 Bundle 'tpope/vim-afterimage'
 Bundle 'pangloss/vim-javascript'
 Bundle 'ervandew/supertab'
+Bundle 'rosenfeld/conque-term'
 
 filetype plugin indent on
 syntax on
@@ -134,6 +135,7 @@ set nowrap		"dont word wrap
 set laststatus=2	"always show the statusline
 set encoding=utf-8
 set autoindent
+set smartindent
 set scrolloff=3		"always show 3 line +/- from the cursor position
 set cursorline		"show where the cursor is
 set ttyfast
@@ -149,6 +151,12 @@ set history=50          " keep 50 lines of command line history
 set ruler               " show the cursor position all the time
 set nomodeline
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc " Suffixes that get lower priority when doing tab completion for filenames.
+set noswapfile
+set nobackup
+set nowb
+
+"conqueterm
+let g:ConqueTerm_ReadUnfocused = 1
 
 "ctrlp
 let g:ctrlp_working_path_mode = 0
