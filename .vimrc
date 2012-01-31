@@ -31,6 +31,7 @@ Bundle 'tpope/vim-afterimage'
 Bundle 'pangloss/vim-javascript'
 Bundle 'ervandew/supertab'
 Bundle 'rosenfeld/conque-term'
+Bundle 'tpope/vim-haml'
 
 filetype plugin indent on
 syntax on
@@ -230,4 +231,4 @@ endif
 
 "highligh indents with whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
-au BufEnter *.[^c][^l][^j] match ExtraWhitespace /^\s\{-}\zs[ ]\+/
+au BufEnter *.[^c][^l] match ExtraWhitespace /^\s\{-}\zs[ ]\+/
