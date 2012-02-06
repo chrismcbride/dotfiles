@@ -32,6 +32,7 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'ervandew/supertab'
 Bundle 'rosenfeld/conque-term'
 Bundle 'tpope/vim-haml'
+Bundle 'tpope/vim-vividchalk'
 
 filetype plugin indent on
 syntax on
@@ -100,7 +101,7 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 filetype plugin indent on
 
 if has("gui_running")
-	colorscheme darkspectrum
+	colorscheme vividchalk
 	highlight StatusLine guibg=darkred
 	highlight StatusLineNC guifg=purple
 	highlight Comment guifg=salmon
@@ -231,4 +232,6 @@ endif
 
 "highligh indents with whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
-au BufEnter *.[^c][^l] match ExtraWhitespace /^\s\{-}\zs[ ]\+/
+au FileType php match ExtraWhitespace /^\s\{-}\zs[ ]\+/
+au FileType javascript match ExtraWhitespace /^\s\{-}\zs[ ]\+/
+
