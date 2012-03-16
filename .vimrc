@@ -77,7 +77,7 @@ map! <S-Insert> <MiddleMouse>
 cabbr <expr> %% expand('%:p:h')
 
 "compile coffee script when file is written
-au BufWritePost *.coffee silent CoffeeMake!
+"au BufWritePost *.coffee silent CoffeeMake!
 
 "json.vim syntax
 au! BufRead,BufNewFile *.json set filetype=json
