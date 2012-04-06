@@ -39,8 +39,8 @@ addKeyBindings config =
 				[ ((mod4Mask .|. shiftMask, xK_z), spawn "xscreensaver-command -lock")
 				, ((mod4Mask, xK_p), spawn "dmenu_run")
 				, ((controlMask, xK_Print), spawn "sleep 0.2; scrot -s")
-				, ((mod4Mask .|. shiftMask, xK_F12), spawn "x-terminal-emulator -e 'gdm-control --shutdown && xmonad --restart'")
-				, ((mod4Mask .|. shiftMask, xK_F11), spawn "x-terminal-emulator -e 'gdm-control --restart && xmonad --restart'")
+				, ((mod4Mask .|. shiftMask, xK_F12), spawn "sudo shutdown -h now")
+				, ((mod4Mask .|. shiftMask, xK_F11), spawn "sudo reboot")
 				, ((mod4Mask .|. shiftMask, xK_Return), spawn "terminator")
 				, ((mod4Mask .|. shiftMask, xK_r), renameWorkspace defaultXPConfig)
 				--XF86AudioMute

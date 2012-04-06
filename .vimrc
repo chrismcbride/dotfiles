@@ -1,7 +1,7 @@
 "Set up Vundle
 set nocompatible        " Use Vim defaults instead of 100% vi compatibility
 filetype off
-set runtimepath=~/.vim,/var/lib/vim/addons,/usr/share/vim/vimfiles,/usr/share/vim/vim72,/usr/share/vim,~/.vim/bundle/vundle
+set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 "Bundles!
@@ -105,7 +105,7 @@ if has("gui_running")
 	highlight StatusLine guibg=darkred
 	highlight StatusLineNC guifg=purple
 	highlight Comment guifg=salmon
-	set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 8 
+	set guifont=Inconsolata-dz\ for\ Powerline
 	" Remove toolbar
 	set guioptions-=T	
 	"remove menu

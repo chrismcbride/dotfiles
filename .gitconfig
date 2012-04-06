@@ -1,0 +1,15 @@
+[user]
+	name = Chris McBride
+	email = cmcbride@rjmetrics.com
+
+[color]
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+[core]
+	editor = vim
+[branch]
+	autosetupmerge = true
+[push]
+	default = upstream
