@@ -1,6 +1,7 @@
 import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.EwmhDesktops
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys, removeKeys)
 import XMonad.Hooks.SetWMName
@@ -25,6 +26,7 @@ main = do
 
 myConfig xmproc = defaultConfig {
 			manageHook = manageDocks <+> ( myManageHooks <+> manageHook defaultConfig ),
+			handleEventHook    = fullscreenEventHook,
 			layoutHook = windowNavigation $ smartBorders $ avoidStruts $ myLayout,
 			workspaces = myWorkspaces,
 			logHook = myLoghook xmproc,
