@@ -13,3 +13,5 @@
 	autosetupmerge = true
 [push]
 	default = upstream
+[alias]
+	meld = !/usr/bin/git-meld.pl
