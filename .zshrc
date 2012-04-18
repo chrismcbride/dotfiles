@@ -37,6 +37,10 @@ function do_ls_on_chdir() {
 	ls; 
 }
 
+function update_mirrors() {
+	sudo reflector -c "United States" --sort score -l 6 --save /etc/pacman.d/mirrorlist
+}
+
 alias bc='bc -q -l';
 alias rm='rm -I';
 alias glog="git log --pretty=format:'%C(yellow)%h%Creset - %C(red)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=short --name-status"
