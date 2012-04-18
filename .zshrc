@@ -7,7 +7,7 @@ export TERM=xterm-256color
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="mcbride"
-
+#ZSH_THEME="juanghurtado"
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 

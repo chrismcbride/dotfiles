@@ -1,27 +1,46 @@
-ZSH_THEME_GIT_PROMPT_ADDED=""
-ZSH_THEME_GIT_PROMPT_MODIFIED=""
-ZSH_THEME_GIT_PROMPT_DELETED=""
-ZSH_THEME_GIT_PROMPT_RENAMED=""
-ZSH_THEME_GIT_PROMPT_UNMERGED=""
-ZSH_THEME_GIT_PROMPT_UNTRACKED=""
+# ------------------------------------------------------------------------
+# Juan G. Hurtado oh-my-zsh theme
+# (Needs Git plugin for current_branch method)
+# ------------------------------------------------------------------------
 
-ZSH_THEME_GIT_PROMPT_AHEAD="%{$fg_bold[yellow]%}↑"
+# Color shortcuts
+RED=$fg[red]
+YELLOW=$fg[yellow]
+GREEN=$fg[green]
+WHITE=$fg[white]
+BLUE=$fg[blue]
+RED_BOLD=$fg_bold[red]
+YELLOW_BOLD=$fg_bold[yellow]
+GREEN_BOLD=$fg_bold[green]
+WHITE_BOLD=$fg_bold[white]
+BLUE_BOLD=$fg_bold[blue]
+RESET_COLOR=$reset_color
+
+# Format for git_prompt_info()
 ZSH_THEME_GIT_PROMPT_PREFIX=""
 ZSH_THEME_GIT_PROMPT_SUFFIX=""
-ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg_bold[red]%}✗"
-ZSH_THEME_GIT_PROMPT_CLEAN=" %{$fg_bold[green]%}✔"
 
-local user_color='blue'
-local back="${BG[237]}"
-test $UID -eq 0 && user_color='red'
+# Format for parse_git_dirty()
+ZSH_THEME_GIT_PROMPT_DIRTY=" %{$RED%}(✗)"
+ZSH_THEME_GIT_PROMPT_CLEAN=""
 
-PROMPT='%{$back%}%B%!%b%{$back%} %{$fg_bold[$user_color]%}%~%{$reset_color%}'\
-'%{$back%} $(git_prompt_status)%{$reset_color%}'\
-'%{$back%}%{$fg_bold[magenta]%}$(git_prompt_info)%{$reset_color%}'\
-'%{$back%}$(git_prompt_ahead)%{$reset_color%}'\
-'%{$back%}%(!.#.>)%{$reset_color%} '
+# Format for git_prompt_status()
+ZSH_THEME_GIT_PROMPT_UNMERGED=" %{$RED%}unmerged"
+ZSH_THEME_GIT_PROMPT_DELETED=" %{$RED%}deleted"
+ZSH_THEME_GIT_PROMPT_RENAMED=" %{$YELLOW%}renamed"
+ZSH_THEME_GIT_PROMPT_MODIFIED=" %{$YELLOW%}modified"
+ZSH_THEME_GIT_PROMPT_ADDED=" %{$GREEN%}added"
+ZSH_THEME_GIT_PROMPT_UNTRACKED=" %{$WHITE%}untracked"
 
-PROMPT2='%{$fg[red]%}%_ %{$reset_color%}'
-PROMPT3='%{$fg[red]%}... %{$reset_color%}'
-RPROMPT='%(?..%{$fg_bold[red]%}exit %?%{$reset_color%})'\
-' %{$FG[186]%}(%D %*)%{$reset_color%}'
+# Format for git_prompt_ahead()
+ZSH_THEME_GIT_PROMPT_AHEAD=" %{$RED%}(↑)"
+
+# Format for git_prompt_long_sha() and git_prompt_short_sha()
+ZSH_THEME_GIT_PROMPT_SHA_BEFORE=" %{$WHITE%}[%{$YELLOW%}"
+ZSH_THEME_GIT_PROMPT_SHA_AFTER="%{$WHITE%}]"
+
+# Prompt format
+PROMPT='
+%{$BLUE_BOLD%}%h%{$WHITE%}:%{$GREEN_BOLD%}%t%{$WHITE%}:%{$YELLOW%}%~%u$(parse_git_dirty)$(git_prompt_ahead)%{$RESET_COLOR%}
+%{$BLUE%}>%{$RESET_COLOR%} '
+RPROMPT='%{$GREEN_BOLD%}$(current_branch)$(git_prompt_short_sha)$(git_prompt_status)%{$RESET_COLOR%}'
