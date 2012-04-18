@@ -33,6 +33,7 @@ Bundle 'ervandew/supertab'
 Bundle 'rosenfeld/conque-term'
 Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-vividchalk'
+Bundle 'sjl/gundo.vim'
 
 filetype plugin indent on
 syntax on
