@@ -7,7 +7,7 @@ export TERM=xterm-256color
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="mcbride"
-
+#ZSH_THEME="juanghurtado"
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
@@ -35,6 +35,10 @@ add-zsh-hook chpwd dirpersiststore
 
 function do_ls_on_chdir() {
 	ls; 
+}
+
+function update_mirrors() {
+	sudo reflector -c "United States" --sort score -l 6 --save /etc/pacman.d/mirrorlist
 }
 
 alias bc='bc -q -l';
