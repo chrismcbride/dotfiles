@@ -34,6 +34,8 @@ Bundle 'rosenfeld/conque-term'
 Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-vividchalk'
 Bundle 'sjl/gundo.vim'
+Bundle 'dgrnbrg/paredit-vim'
+Bundle 'sattvik/lein-tarsier'
 
 filetype plugin indent on
 syntax on
