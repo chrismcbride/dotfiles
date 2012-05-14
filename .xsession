@@ -7,6 +7,7 @@ xsetroot -solid midnightblue
 xsetroot -cursor_name left_ptr
 
 xscreensaver -no-splash &
+xmodmap ~/.Xmodmap
 
 if [ -x /usr/bin/wicd-client ] ; then
    wicd-client --tray &
