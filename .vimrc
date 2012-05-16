@@ -192,6 +192,7 @@ nnoremap <silent> <F8> :TagbarOpenAutoClose<CR>
 "syntastic options
 "This requires jsonlint and jshint
 let s:php_executable = "/usr/bin/php"
+let g:syntastic_phpcs_disable = 1
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=1
 let g:syntastic_check_on_open=1
