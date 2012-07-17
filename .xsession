@@ -1,13 +1,11 @@
 xrdb -merge .Xresources
 
-trayer --edge top --align right --SetDockType true --SetPartialStrut true \
- --expand true --width 3 --transparent true --tint 0x191970 --height 12 &
- 
 xsetroot -solid midnightblue
 xsetroot -cursor_name left_ptr
 
 xscreensaver -no-splash &
 xmodmap ~/.Xmodmap
+lxpanel &
 
 if [ -x /usr/bin/wicd-client ] ; then
    wicd-client --tray &

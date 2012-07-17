@@ -14,20 +14,23 @@ import XMonad.Actions.UpdatePointer
 import XMonad.Layout.MouseResizableTile
 import XMonad.StackSet as W (shift, greedyView)
 import XMonad.Actions.SpawnOn (spawnOn)
-import XMonad.Layout.Tabbed
 import XMonad.Layout.WindowNavigation
 import XMonad.Util.WorkspaceCompare
+import XMonad.Layout.Minimize
+import XMonad.Hooks.Minimize
+import XMonad.Layout.BoringWindows
+import Data.Monoid(mappend)
 import System.IO
 
 
 main = do
 	xmproc <- spawnPipe "/usr/bin/xmobar -x 0 ~/.xmobarrc"
-	xmonad $ addKeyBindings $ myConfig xmproc
+	xmonad $ ewmh $ addKeyBindings $ myConfig xmproc
 
 myConfig xmproc = defaultConfig {
 			manageHook = manageDocks <+> ( myManageHooks <+> manageHook defaultConfig ),
-			handleEventHook    = fullscreenEventHook,
-			layoutHook = windowNavigation $ smartBorders $ avoidStruts $ myLayout,
+			handleEventHook = mappend minimizeEventHook fullscreenEventHook,
+			layoutHook = boringWindows $ minimize $ windowNavigation $ smartBorders $ avoidStruts $ myLayout,
 			workspaces = myWorkspaces,
 			logHook = myLoghook xmproc,
 			modMask = mod4Mask,	 -- Rebind Mod to the Windows key
@@ -53,6 +56,8 @@ addKeyBindings config =
 				, ((0 , 0x1008ff13), spawn "amixer -q set Master 1+ unmute")
 				, ((mod4Mask, xK_i), sendMessage ShrinkSlave) -- %! Shrink a slave area
 				, ((mod4Mask, xK_u), sendMessage ExpandSlave) -- %! Expand a slave area
+				, ((mod4Mask, xK_j), focusUp)
+				, ((mod4Mask, xK_k), focusDown)
 				, ((mod4Mask,                 xK_Right), sendMessage $ Go R)
 				, ((mod4Mask,                 xK_Left), sendMessage $ Go L)
 				, ((mod4Mask,                 xK_Up), sendMessage $ Go U)
@@ -61,6 +66,8 @@ addKeyBindings config =
 				, ((mod4Mask .|. shiftMask, xK_Left), sendMessage $ Swap L)
 				, ((mod4Mask .|. shiftMask, xK_Up), sendMessage $ Swap U)
 				, ((mod4Mask .|. shiftMask, xK_Down), sendMessage $ Swap D)
+				, ((mod4Mask,               xK_m     ), withFocused minimizeWindow)
+				, ((mod4Mask .|. shiftMask, xK_m     ), sendMessage RestoreNextMinimizedWin)
 				, ((0, xK_Print), spawn "scrot")
 				]
 				++
@@ -103,7 +110,7 @@ myManageHooks = composeAll . concat $
 	, [(className =? "Gimp") --> doFloat ] 
 	, [(className =? "Truecrypt" <||> className =? "VirtualBox") --> doShift (myWorkspaces!!11) ] ]
 
-myLayout =  simpleTabbed |||
+myLayout =  Full |||
 			mouseResizableTile {
 				masterFrac  = 0.6,
 				draggerType = FixedDragger 0 5
