@@ -21,4 +21,4 @@ if [ -x /usr/bin/xfce4-power-manager ] ; then
 	xfce4-power-manager
 fi
 
-exec ck-launch-session dbus-launch /usr/bin/xmonad
+exec dbus-launch /usr/bin/xmonad
