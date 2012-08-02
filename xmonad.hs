@@ -44,8 +44,8 @@ addKeyBindings config =
 				[ ((mod4Mask .|. shiftMask, xK_z), spawn "xscreensaver-command -lock")
 				, ((mod4Mask, xK_p), spawn "dmenu_run")
 				, ((controlMask, xK_Print), spawn "sleep 0.2; scrot -s")
-				, ((mod4Mask .|. shiftMask, xK_F12), spawn "/usr/bin/sudo /sbin/shutdown -h now") 
-				, ((mod4Mask .|. shiftMask, xK_F11), spawn "/usr/bin/sudo /sbin/reboot") 
+				, ((mod4Mask .|. shiftMask, xK_F12), spawn "/usr/bin/systemctl poweroff") 
+				, ((mod4Mask .|. shiftMask, xK_F11), spawn "/usr/bin/systemctl reboot") 
 				, ((mod4Mask .|. shiftMask, xK_Return), spawn "terminator")
 				, ((mod4Mask .|. shiftMask, xK_r), renameWorkspace defaultXPConfig)
 				--XF86AudioMute
@@ -84,7 +84,6 @@ myStartuphook =  do
 	setWorkspaceName (myWorkspaces!!3) "git"
 	setWorkspaceName (myWorkspaces!!11) "VM"
 	spawnOn (myWorkspaces!!0) "google-chrome"
-	spawnOn (myWorkspaces!!11) "truecrypt"
 	spawnOn (myWorkspaces!!11) "virtualbox"
 
 myLoghook xmproc = workspaceNamesPP defaultPP { 
