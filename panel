@@ -25,27 +25,6 @@ Global {
 }
 
 Plugin {
-    type = space
-    Config {
-        Size=2
-    }
-}
-
-Plugin {
-    type = space
-    Config {
-        Size=4
-    }
-}
-
-Plugin {
-    type = space
-    Config {
-        Size=4
-    }
-}
-
-Plugin {
     type = taskbar
     expand=1
     Config {
