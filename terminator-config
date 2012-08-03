@@ -1,0 +1,20 @@
+[global_config]
+  borderless = True
+[keybindings]
+[profiles]
+  [[default]]
+    scrollbar_position = hidden
+    custom_command = /bin/bash
+    scrollback_lines = 10000
+    use_system_font = False
+    show_titlebar = False
+    font = DejaVu Sans Mono 10
+[layouts]
+  [[default]]
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+    [[[window0]]]
+      type = Window
+      parent = ""
+[plugins]
