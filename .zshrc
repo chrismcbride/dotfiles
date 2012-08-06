@@ -25,7 +25,7 @@ ZSH_THEME="mcbride"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git extract history-substring-search dirpersist)
+plugins=(git extract history-substring-search dirpersist git-flow)
 
 source $ZSH/oh-my-zsh.sh
 
