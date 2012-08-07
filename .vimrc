@@ -59,7 +59,14 @@ command! -nargs=1 Vg call VimGrepper( '<args>' )
 
 "build ctags
 command! -nargs=0 Ctags :
-	\ exe "!ctags -R --exclude=.git --exclude=\\*.js --tag-relative=yes --PHP-kinds=+cf-v --regex-PHP='/abstract\s+class\s+([^ ]+)/\1/c/' --regex-PHP='/interface\s+([^ ]+)/\1/c/' --regex-PHP='/(public\s+|static\s+|abstract\s+|protected\s+|private\s+)function\s+\&?\s*([^ (]+)/\2/f/'" 
+	\ exe "!ctags -R 
+            \ --exclude=.git 
+            \ --exclude=\\*.js 
+            \ --tag-relative=yes 
+            \ --PHP-kinds=+cf-v
+            \ --regex-PHP='/abstract\s+class\s+([^ ]+)/\1/c/'
+            \ --regex-PHP='/interface\s+([^ ]+)/\1/c/'
+            \ --regex-PHP='/(public\s+|static\s+|abstract\s+|protected\s+|private\s+)function\s+\&?\s*([^ (]+)/\2/f/'"
 
 function! VimGrepper(arg)
 	:execute "noautocmd vimgrep /" . a:arg . "/j **" 
