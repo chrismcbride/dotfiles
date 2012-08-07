@@ -146,7 +146,7 @@ set scrolloff=3		"always show 3 line +/- from the cursor position
 set cursorline		"show where the cursor is
 set ttyfast
 set gdefault		"all s// commands are global
-set noexpandtab
+set expandtab
 set tabstop=4
 set shiftwidth=4
 set completeopt =menu,menuone,longest "get rid of scratch pad
@@ -186,6 +186,16 @@ let g:tagbar_type_php  = {
 		\ 'f:functions',
 	\ ]
 \ }
+
+let g:tagbar_type_coffee = {
+      \ 'ctagstype' : 'coffee',
+      \ 'kinds' : [
+      \   'c:classes',
+      \   'f:functions',
+      \   'v:variables'
+      \ ],
+\ }
+
 "show the tag list
 nnoremap <silent> <F8> :TagbarOpenAutoClose<CR>
 
