@@ -25,4 +25,7 @@ if [ -x /usr/bin/xfce4-power-manager ] ; then
 	xfce4-power-manager
 fi
 
+eval `ssh-agent`
+xterm -e ssh-add
+
 exec dbus-launch /usr/bin/xmonad

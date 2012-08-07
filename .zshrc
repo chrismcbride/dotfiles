@@ -55,5 +55,3 @@ export PATH=/usr/local/bin:/usr/local/sbin/:/bin:/sbin:/usr/bin:/usr/sbin:/home/
 export EDITOR=/usr/bin/vim
 export BROWSER=google-chrome
 export GIT_MERGE_AUTOEDIT=no
-
-eval $(ssh-agent)
