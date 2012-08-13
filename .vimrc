@@ -38,6 +38,7 @@ Bundle 'dgrnbrg/paredit-vim'
 Bundle 'sattvik/lein-tarsier'
 Bundle 'groenewege/vim-less'
 Bundle 'wavded/vim-stylus'
+Bundle 'uarun/vim-protobuf'
 
 filetype plugin indent on
 syntax on
