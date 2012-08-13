@@ -37,6 +37,7 @@ Bundle 'sjl/gundo.vim'
 Bundle 'dgrnbrg/paredit-vim'
 Bundle 'sattvik/lein-tarsier'
 Bundle 'groenewege/vim-less'
+Bundle 'wavded/vim-stylus'
 
 filetype plugin indent on
 syntax on
@@ -154,8 +155,8 @@ set cursorline		"show where the cursor is
 set ttyfast
 set gdefault		"all s// commands are global
 set expandtab
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set completeopt =menu,menuone,longest "get rid of scratch pad
 set wildignore+=*.git,*.jpg,tags
 set magic	"make regexs more perl like
