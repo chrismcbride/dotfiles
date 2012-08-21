@@ -39,6 +39,7 @@ Bundle 'sattvik/lein-tarsier'
 Bundle 'groenewege/vim-less'
 Bundle 'wavded/vim-stylus'
 Bundle 'uarun/vim-protobuf'
+Bundle 'vim-scripts/SmartCase'
 
 filetype plugin indent on
 syntax on
@@ -159,13 +160,13 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 set completeopt =menu,menuone,longest "get rid of scratch pad
-set wildignore+=*.git,*.jpg,tags
+set wildignore+=*.git,*.jpg,tags,*.pyc
 set magic	"make regexs more perl like
 set backspace=indent,eol,start  " more powerful backspacing
 set history=50          " keep 50 lines of command line history
 set ruler               " show the cursor position all the time
 set nomodeline
-set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc " Suffixes that get lower priority when doing tab completion for filenames.
+set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc,.pyc " Suffixes that get lower priority when doing tab completion for filenames.
 set noswapfile
 set nobackup
 set nowb
@@ -255,7 +256,7 @@ else
 endif
 
 "highligh indents with whitespace
-highlight ExtraWhitespace ctermbg=red guibg=red
-au FileType php match ExtraWhitespace /^\s\{-}\zs[ ]\+/
-au FileType javascript match ExtraWhitespace /^\s\{-}\zs[ ]\+/
+" highlight ExtraWhitespace ctermbg=red guibg=red
+" au FileType php match ExtraWhitespace /^\s\{-}\zs[ ]\+/
+" au FileType javascript match ExtraWhitespace /^\s\{-}\zs[ ]\+/
 
