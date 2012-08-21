@@ -40,6 +40,7 @@ Bundle 'groenewege/vim-less'
 Bundle 'wavded/vim-stylus'
 Bundle 'uarun/vim-protobuf'
 Bundle 'vim-scripts/SmartCase'
+Bundle 'derekwyatt/vim-scala'
 
 filetype plugin indent on
 syntax on
