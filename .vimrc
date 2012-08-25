@@ -163,7 +163,7 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 set completeopt =menu,menuone,longest "get rid of scratch pad
-set wildignore+=*.git,*.jpg,tags,*.pyc
+set wildignore+=*.git,*.jpg,tags,*.pyc,*/node_modules/*
 set magic	"make regexs more perl like
 set backspace=indent,eol,start  " more powerful backspacing
 set history=50          " keep 50 lines of command line history
@@ -181,8 +181,7 @@ let g:ConqueTerm_ReadUnfocused = 1
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_use_caching = 1
 let g:ctrlp_max_height = 30
-let g:ctrlp_regexp_search = 1
-let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files', 'find %s -type f']
+let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files --cached --exclude-standard -o', 'find %s -type f']
 let g:ctrlp_dont_split = ''
 let g:ctrlp_arg_map = 0
 let g:ctrlp_open_multi = '2'
