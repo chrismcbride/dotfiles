@@ -41,6 +41,8 @@ Bundle 'wavded/vim-stylus'
 Bundle 'uarun/vim-protobuf'
 Bundle 'vim-scripts/SmartCase'
 Bundle 'derekwyatt/vim-scala'
+Bundle 'mileszs/ack.vim'
+Bundle 'vim-scripts/trailing-whitespace'
 
 filetype plugin indent on
 syntax on
