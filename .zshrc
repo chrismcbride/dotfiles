@@ -25,13 +25,12 @@ ZSH_THEME="mcbride"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git extract history-substring-search dirpersist git-flow)
+plugins=(git extract history-substring-search git-flow)
 
 source $ZSH/oh-my-zsh.sh
 
 autoload -U add-zsh-hook
 add-zsh-hook chpwd do_ls_on_chdir
-add-zsh-hook chpwd dirpersiststore
 
 function do_ls_on_chdir() {
 	ls; 
