@@ -14,7 +14,7 @@ lxpanel &
 if [ -x /usr/bin/wicd-client ] ; then
    wicd-client --tray &
 fi
- 
+
 if [ -x /usr/bin/volumeicon ] ; then
    volumeicon &
 fi
