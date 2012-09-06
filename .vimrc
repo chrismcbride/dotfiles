@@ -58,10 +58,7 @@ vnoremap ; :
 vnoremap : ;
 
 "search for the current word
-noremap <F4> <ESC>:call VimGrepper(expand("<cword>"))<CR>
-
-"search for a word
-command! -nargs=1 Vg call VimGrepper( '<args>' )
+noremap <F4> <ESC>:AckFromSearch<CR>
 
 "build ctags
 command! -nargs=0 Ctags :
@@ -73,11 +70,6 @@ command! -nargs=0 Ctags :
             \ --regex-PHP='/abstract\s+class\s+([^ ]+)/\1/c/'
             \ --regex-PHP='/interface\s+([^ ]+)/\1/c/'
             \ --regex-PHP='/(public\s+|static\s+|abstract\s+|protected\s+|private\s+)function\s+\&?\s*([^ (]+)/\2/f/'"
-
-function! VimGrepper(arg)
-	:execute "noautocmd vimgrep /" . a:arg . "/j **"
-	:execute "botright cwindow"
-endfunction
 
 "make the vim search regex more like perl
 nnoremap / /\v
