@@ -58,24 +58,24 @@ vnoremap ; :
 vnoremap : ;
 
 "search for the current word
-noremap <F4> <ESC>:call VimGrepper(expand("<cword>"))<CR> 
+noremap <F4> <ESC>:call VimGrepper(expand("<cword>"))<CR>
 
 "search for a word
 command! -nargs=1 Vg call VimGrepper( '<args>' )
 
 "build ctags
 command! -nargs=0 Ctags :
-	\ exe "!ctags -R 
-            \ --exclude=.git 
-            \ --exclude=\\*.js 
-            \ --tag-relative=yes 
+	\ exe "!ctags -R
+            \ --exclude=.git
+            \ --exclude=\\*.js
+            \ --tag-relative=yes
             \ --PHP-kinds=+cf-v
             \ --regex-PHP='/abstract\s+class\s+([^ ]+)/\1/c/'
             \ --regex-PHP='/interface\s+([^ ]+)/\1/c/'
             \ --regex-PHP='/(public\s+|static\s+|abstract\s+|protected\s+|private\s+)function\s+\&?\s*([^ (]+)/\2/f/'"
 
 function! VimGrepper(arg)
-	:execute "noautocmd vimgrep /" . a:arg . "/j **" 
+	:execute "noautocmd vimgrep /" . a:arg . "/j **"
 	:execute "botright cwindow"
 endfunction
 
@@ -124,7 +124,7 @@ if has("gui_running")
 	highlight Comment guifg=salmon
 	set guifont=Inconsolata-dz\ for\ Powerline\ 10
 	" Remove toolbar
-	set guioptions-=T	
+	set guioptions-=T
 	"remove menu
 	set guioptions-=m
 	" remove scrollbar
@@ -144,7 +144,7 @@ set autowrite		" Automatically save before commands like :next and :make
 set hidden             " Hide buffers when they are abandoned
 set number		"line numbers
 set hlsearch		"Highlight search
-set fileencodings=utf-8 
+set fileencodings=utf-8
 set encoding=utf-8
 set wildmenu		"autocomplete menu
 set wildmode=list:longest
@@ -173,6 +173,7 @@ set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.i
 set noswapfile
 set nobackup
 set nowb
+set colorcolumn=81
 
 "conqueterm
 let g:ConqueTerm_ReadUnfocused = 1
