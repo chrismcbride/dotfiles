@@ -3,10 +3,11 @@
 [keybindings]
 [profiles]
   [[default]]
-    scrollbar_position = hidden
+    use_system_font = False
     custom_command = /bin/bash
     scrollback_lines = 10000
-    use_system_font = False
+    scrollbar_position = hidden
+    scroll_on_output = False
     show_titlebar = False
     font = DejaVu Sans Mono 10
 [layouts]
