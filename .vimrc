@@ -9,9 +9,6 @@ Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 Bundle 'fholgado/minibufexpl.vim'
-Bundle 'shawncplus/phpcomplete.vim'
-" ^^^ This requires a symlink in the autoload folder
-Bundle 'StanAngeloff/php.vim'
 Bundle 'scrooloose/syntastic'
 " ^^^ This requires syntax checkers to be installed (php, jshint)
 Bundle 'majutsushi/tagbar'
@@ -24,13 +21,11 @@ Bundle 'tsaleh/vim-matchit'
 Bundle 'Lokaltog/vim-powerline'
 " ^^^ This requires patched fonts
 Bundle 'tpope/vim-surround'
-Bundle 'vim-scripts/darkspectrum'
 Bundle 'vim-scripts/JSON.vim'
 Bundle 'tpope/vim-eunuch'
 Bundle 'tpope/vim-afterimage'
 Bundle 'pangloss/vim-javascript'
 Bundle 'ervandew/supertab'
-Bundle 'rosenfeld/conque-term'
 Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-vividchalk'
 Bundle 'sjl/gundo.vim'
@@ -43,6 +38,7 @@ Bundle 'vim-scripts/SmartCase'
 Bundle 'derekwyatt/vim-scala'
 Bundle 'mileszs/ack.vim'
 Bundle 'vim-scripts/trailing-whitespace'
+Bundle 'vim-scripts/Align'
 
 filetype plugin indent on
 syntax on
@@ -59,6 +55,18 @@ vnoremap : ;
 
 "search for the current word
 noremap <F4> <ESC>:AckFromSearch<CR>
+
+" Search for selected text, forwards or backwards.
+vnoremap <silent> * :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy/<C-R><C-R>=substitute(
+  \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gV:call setreg('"', old_reg, old_regtype)<CR>
+vnoremap <silent> # :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy?<C-R><C-R>=substitute(
+  \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gV:call setreg('"', old_reg, old_regtype)<CR>
 
 "build ctags
 command! -nargs=0 Ctags :
