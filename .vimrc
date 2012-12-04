@@ -122,7 +122,7 @@ if has("gui_running")
 	highlight StatusLine guibg=darkred
 	highlight StatusLineNC guifg=purple
 	highlight Comment guifg=salmon
-	set guifont=Inconsolata-dz\ for\ Powerline\ 10
+	set guifont=Inconsolata-dz\ for\ Powerline\ 9
 	" Remove toolbar
 	set guioptions-=T
 	"remove menu
@@ -180,7 +180,7 @@ let g:ConqueTerm_ReadUnfocused = 1
 
 "ctrlp
 let g:ctrlp_working_path_mode = 0
-let g:ctrlp_use_caching = 1
+let g:ctrlp_use_caching = 0
 let g:ctrlp_max_height = 30
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard']
 let g:ctrlp_dont_split = ''
