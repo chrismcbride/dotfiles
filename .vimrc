@@ -122,7 +122,7 @@ if has("gui_running")
 	highlight StatusLine guibg=darkred
 	highlight StatusLineNC guifg=purple
 	highlight Comment guifg=salmon
-	set guifont=Inconsolata-dz\ for\ Powerline\ 10
+	set guifont=Inconsolata-dz\ for\ Powerline\ 9
 	" Remove toolbar
 	set guioptions-=T
 	"remove menu

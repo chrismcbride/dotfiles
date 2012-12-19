@@ -34,7 +34,7 @@ add-zsh-hook chpwd do_ls_on_chdir
 add-zsh-hook chpwd dirpersiststore
 
 function do_ls_on_chdir() {
-	ls; 
+	ls;
 }
 
 function update_mirrors() {
