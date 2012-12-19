@@ -15,3 +15,8 @@
 	default = upstream
 [alias]
 	meld = !/usr/bin/git-meld.pl
+[giggle]
+	main-window-maximized = false
+	main-window-geometry = 1150x1037+1920+15
+	history-view-vpane-position = 327
+	main-window-view = HistoryView
