@@ -5,7 +5,6 @@ import XMonad.Hooks.EwmhDesktops
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys, removeKeys)
 import XMonad.Hooks.SetWMName
-import XMonad.Hooks.ICCCMFocus
 import XMonad.Layout.NoBorders
 import XMonad.Hooks.ManageHelpers
 import XMonad.Prompt
@@ -35,17 +34,17 @@ myConfig xmproc = defaultConfig {
 			logHook = myLoghook xmproc,
 			modMask = mod4Mask,	 -- Rebind Mod to the Windows key
 			startupHook = myStartuphook
-		}  
+		}
 
-addKeyBindings config = 
-			config `removeKeys`	
+addKeyBindings config =
+			config `removeKeys`
 				[ (mod4Mask, xK_q) ]
 			`additionalKeys` (
 				[ ((mod4Mask .|. shiftMask, xK_z), spawn "xscreensaver-command -lock")
 				, ((mod4Mask, xK_p), spawn "dmenu_run")
 				, ((controlMask, xK_Print), spawn "sleep 0.2; scrot -s")
-				, ((mod4Mask .|. shiftMask, xK_F12), spawn "/usr/bin/systemctl poweroff") 
-				, ((mod4Mask .|. shiftMask, xK_F11), spawn "/usr/bin/systemctl reboot") 
+				, ((mod4Mask .|. shiftMask, xK_F12), spawn "/usr/bin/systemctl poweroff")
+				, ((mod4Mask .|. shiftMask, xK_F11), spawn "/usr/bin/systemctl reboot")
 				, ((mod4Mask .|. shiftMask, xK_Return), spawn "terminator")
 				, ((mod4Mask .|. shiftMask, xK_r), renameWorkspace defaultXPConfig)
 				--XF86AudioMute
@@ -71,7 +70,7 @@ addKeyBindings config =
 				, ((0, xK_Print), spawn "scrot")
 				]
 				++
-				[((m .|. mod4Mask, k), windows $ f i)                                                                           
+				[((m .|. mod4Mask, k), windows $ f i)
 					| (i, k) <- zip (drop 9 myWorkspaces) [xK_0, xK_minus, xK_equal]
 					, (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
 			)
@@ -84,9 +83,8 @@ myStartuphook =  do
 	setWorkspaceName (myWorkspaces!!3) "git"
 	setWorkspaceName (myWorkspaces!!11) "VM"
 	spawnOn (myWorkspaces!!0) "google-chrome"
-	spawnOn (myWorkspaces!!11) "virtualbox"
 
-myLoghook xmproc = workspaceNamesPP defaultPP { 
+myLoghook xmproc = workspaceNamesPP defaultPP {
 					ppOutput = hPutStrLn xmproc,
 					ppCurrent = xmobarColor "yellow" "" . wrap "[" "]",
 					ppVisible = xmobarColor "#999900" "" . wrap "[" "]",
@@ -94,28 +92,28 @@ myLoghook xmproc = workspaceNamesPP defaultPP {
 					ppSep = " | ",
 					ppLayout = xmobarColor "orange" "" . trim,
 					ppTitle = xmobarColor "green" "" . trim
-				} >>= dynamicLogWithPP >> takeTopFocus >> updatePointer (Relative 0.25 0.25)
+				} >>= dynamicLogWithPP >> updatePointer (Relative 0.25 0.25)
 
 myWorkspaces :: [WorkspaceId]
 myWorkspaces = map show [1..12]
 
 myManageHooks = composeAll . concat $
 	[ [ isFullscreen --> doFullFloat ]
-	, [(className =? "Firefox" <&&> appName =? "Dialog") --> doFloat] 
-	, [(className =? "Iceweasel" <&&> appName =? "Dialog") --> doFloat] 
-	, [(stringProperty "WM_WINDOW_ROLE" =? "Preferences") --> doFloat] 
+	, [(className =? "Firefox" <&&> appName =? "Dialog") --> doFloat]
+	, [(className =? "Iceweasel" <&&> appName =? "Dialog") --> doFloat]
+	, [(stringProperty "WM_WINDOW_ROLE" =? "Preferences") --> doFloat]
 	, [(title =? "volumeicon") --> doFloat]
-	, [(title =? "Preferences") --> doFloat] 
-	, [(className =? "Gimp") --> doFloat ] 
+	, [(title =? "Preferences") --> doFloat]
+	, [(className =? "Gimp") --> doFloat ]
 	, [(className =? "Truecrypt" <||> className =? "VirtualBox") --> doShift (myWorkspaces!!11) ] ]
 
 myLayout =  Full |||
 			mouseResizableTile {
 				masterFrac  = 0.6,
 				draggerType = FixedDragger 0 5
-			} 
+			}
 			|||	mouseResizableTile {
 				masterFrac = 0.6,
 				draggerType = FixedDragger 0 5,
 				isMirrored = True
-			} 
+			}
