@@ -88,9 +88,6 @@ map! <S-Insert> <MiddleMouse>
 ""abbrevation: %% -> current dir of file
 cabbr <expr> %% expand('%:p:h')
 
-"compile coffee script when file is written
-"au BufWritePost *.coffee silent CoffeeMake!
-
 "json.vim syntax
 au! BufRead,BufNewFile *.json set filetype=json
 augroup json_autocmd
