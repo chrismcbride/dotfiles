@@ -6,6 +6,7 @@ call vundle#rc()
 
 "Bundles!
 Bundle 'gmarik/vundle'
+Bundle 'tpope/vim-sensible'
 Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 Bundle 'fholgado/minibufexpl.vim'
@@ -17,20 +18,17 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'tpope/vim-commentary'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tpope/vim-fugitive'
-Bundle 'tsaleh/vim-matchit'
 Bundle 'Lokaltog/vim-powerline'
 " ^^^ This requires patched fonts
 Bundle 'tpope/vim-surround'
 Bundle 'vim-scripts/JSON.vim'
 Bundle 'tpope/vim-eunuch'
-Bundle 'tpope/vim-afterimage'
 Bundle 'pangloss/vim-javascript'
 Bundle 'ervandew/supertab'
 Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-vividchalk'
 Bundle 'sjl/gundo.vim'
 Bundle 'dgrnbrg/paredit-vim'
-Bundle 'sattvik/lein-tarsier'
 Bundle 'groenewege/vim-less'
 Bundle 'wavded/vim-stylus'
 Bundle 'uarun/vim-protobuf'
@@ -39,9 +37,6 @@ Bundle 'derekwyatt/vim-scala'
 Bundle 'mileszs/ack.vim'
 Bundle 'vim-scripts/trailing-whitespace'
 Bundle 'vim-scripts/Align'
-
-filetype plugin indent on
-syntax on
 
 "make thee comma the leader, and swap the it with ctrl-e
 nnoremap <C-e> ,
@@ -102,9 +97,6 @@ augroup json_autocmd
 	autocmd FileType json set foldmethod=syntax
 augroup END
 
-"make *.tpl highlight as html (needed for matchit to work)
-au BufRead,BufNewFile *.tpl setlocal ft=html
-
 autocmd FileType php call PhpSettings()
 
 "i hate typing ->
@@ -135,27 +127,17 @@ if has("gui_running")
 endif
 
 set background=dark
-set showcmd		" Show (partial) command in status line.
-set showmatch		" Show matching brackets.
 set ignorecase		" Do case insensitive matching
-set smartcase		" Do smart case matching
-set incsearch		" Incremental search
-set autowrite		" Automatically save before commands like :next and :make
 set hidden             " Hide buffers when they are abandoned
 set number		"line numbers
 set hlsearch		"Highlight search
 set fileencodings=utf-8
 set encoding=utf-8
-set wildmenu		"autocomplete menu
 set wildmode=list:longest
-set autoread 		"read file from disk when it changes
 :set cpoptions+=$	"show a dollar sign when doing a change command
 set nowrap		"dont word wrap
-set laststatus=2	"always show the statusline
 set encoding=utf-8
-set autoindent
 set smartindent
-set scrolloff=3		"always show 3 line +/- from the cursor position
 set cursorline		"show where the cursor is
 set ttyfast
 set gdefault		"all s// commands are global
@@ -165,13 +147,9 @@ set shiftwidth=2
 set completeopt =menu,menuone,longest "get rid of scratch pad
 set wildignore+=*.git,*.jpg,tags,*.pyc,*/node_modules/*
 set magic	"make regexs more perl like
-set backspace=indent,eol,start  " more powerful backspacing
 set history=50          " keep 50 lines of command line history
-set ruler               " show the cursor position all the time
 set nomodeline
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc,.pyc " Suffixes that get lower priority when doing tab completion for filenames.
-set noswapfile
-set nobackup
 set nowb
 set colorcolumn=81
 
@@ -262,4 +240,3 @@ endif
 " highlight ExtraWhitespace ctermbg=red guibg=red
 " au FileType php match ExtraWhitespace /^\s\{-}\zs[ ]\+/
 " au FileType javascript match ExtraWhitespace /^\s\{-}\zs[ ]\+/
-
