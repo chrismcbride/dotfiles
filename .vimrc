@@ -144,7 +144,6 @@ set shiftwidth=2
 set completeopt =menu,menuone,longest "get rid of scratch pad
 set wildignore+=*.git,*.jpg,tags,*.pyc,*/node_modules/*
 set magic	"make regexs more perl like
-set history=50          " keep 50 lines of command line history
 set nomodeline
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc,.pyc " Suffixes that get lower priority when doing tab completion for filenames.
 set nowb
