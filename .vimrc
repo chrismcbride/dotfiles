@@ -24,7 +24,6 @@ Bundle 'tpope/vim-surround'
 Bundle 'vim-scripts/JSON.vim'
 Bundle 'tpope/vim-eunuch'
 Bundle 'pangloss/vim-javascript'
-Bundle 'ervandew/supertab'
 Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-vividchalk'
 Bundle 'sjl/gundo.vim'
@@ -37,6 +36,7 @@ Bundle 'derekwyatt/vim-scala'
 Bundle 'mileszs/ack.vim'
 Bundle 'vim-scripts/trailing-whitespace'
 Bundle 'vim-scripts/Align'
+Bundle 'Valloric/YouCompleteMe'
 
 "make thee comma the leader, and swap the it with ctrl-e
 nnoremap <C-e> ,
