@@ -51,7 +51,7 @@ vnoremap ; :
 vnoremap : ;
 
 "search for the current word
-noremap <F4> <ESC>:AckFromSearch<CR>
+noremap <F4> <ESC>:AckFromSearch!<CR>
 
 " Search for selected text, forwards or backwards.
 vnoremap <silent> * :<C-U>
@@ -95,13 +95,6 @@ au! BufRead,BufNewFile *.json set filetype=json
 augroup json_autocmd
 	autocmd FileType json set foldmethod=syntax
 augroup END
-
-autocmd FileType php call PhpSettings()
-
-"i hate typing ->
-function! PhpSettings()
-	inoremap <buffer> - ->
-endfunction
 
 " have Vim jump to the last position when
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -150,9 +143,6 @@ set nomodeline
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc,.pyc " Suffixes that get lower priority when doing tab completion for filenames.
 set nowb
 set colorcolumn=81
-
-"conqueterm
-let g:ConqueTerm_ReadUnfocused = 1
 
 "ctrlp
 let g:ctrlp_working_path_mode = 0
@@ -205,36 +195,8 @@ let g:miniBufExplVSplit = 40   " column width in chars
 let g:miniBufExplSplitBelow=1  " Put new window on right
 hi MBENormal guifg=gray ctermfg=gray
 
-"easy motion
-let g:EasyMotion_leader_key = '<Leader>'
-
-"vimclojure
-let g:vimclojure#ParenRainbow = 1
-let g:vimclojure#DynamicHighlighting = 1
-let vimclojure#HighlightBuiltins=1
-let vimclojure#HighlightContrib=1
-"let vimclojure#WantNailgun = 1
-
 "powerline
 let g:Powerline_symbols='fancy'
 
 "nerdtree
 noremap <silent> <F2> :NERDTreeToggle<CR>
-
-"supertab
-let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabContextDefaultCompletionType = "<c-x><c-]>"
-let g:SuperTabMappingForward = '<c-tab>'
-let g:SuperTabMappingBackward = '<c-s-tab>'
-
-"fix bug with easymotion
-if has('gui_running')
-	hi EasyMotionShade guifg=darkgrey guibg=black
-else
-	hi EasyMotionShade ctermfg=darkgrey ctermbg=black
-endif
-
-"highligh indents with whitespace
-" highlight ExtraWhitespace ctermbg=red guibg=red
-" au FileType php match ExtraWhitespace /^\s\{-}\zs[ ]\+/
-" au FileType javascript match ExtraWhitespace /^\s\{-}\zs[ ]\+/
