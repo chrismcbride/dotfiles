@@ -44,6 +44,7 @@ function update_mirrors() {
 alias bc='bc -q -l';
 alias rm='rm -I';
 alias glog="git log --pretty=format:'%C(yellow)%h%Creset - %C(red)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=short --name-status"
+alias clawk="java -jar ~/src/clawk/target/*-standalone.jar"
 
 gdelbranch() { git branch -D "$@" ; git push origin :heads/"$@" }
 gchangeset() { git diff $(git merge-base develop "$@").."$@" }
