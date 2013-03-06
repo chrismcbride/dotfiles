@@ -40,6 +40,7 @@ Bundle 'tpope/vim-classpath'
 Bundle 'guns/vim-clojure-static'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'airblade/vim-gitgutter'
+Bundle 'airblade/vim-rooter'
 
 "make thee comma the leader, and swap the it with ctrl-e
 nnoremap <C-e> ,
