@@ -39,6 +39,7 @@ Bundle 'tpope/vim-foreplay'
 Bundle 'tpope/vim-classpath'
 Bundle 'guns/vim-clojure-static'
 Bundle 'kien/rainbow_parentheses.vim'
+Bundle 'airblade/vim-gitgutter'
 
 "make thee comma the leader, and swap the it with ctrl-e
 nnoremap <C-e> ,
@@ -200,3 +201,4 @@ let g:Powerline_symbols='fancy'
 
 "nerdtree
 noremap <silent> <F2> :NERDTreeToggle<CR>
+au VimEnter * highlight clear SignColumn
