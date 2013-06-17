@@ -53,6 +53,12 @@ nnoremap : ;
 vnoremap ; :
 vnoremap : ;
 
+"winow nav
+noremap <C-J>     <C-W>j
+noremap <C-K>     <C-W>k
+noremap <C-H>     <C-W>h
+noremap <C-L>     <C-W>l
+
 "search for the current word
 noremap <F4> <ESC>:AckFromSearch!<CR>
 
@@ -146,6 +152,8 @@ set nomodeline
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc,.pyc " Suffixes that get lower priority when doing tab completion for filenames.
 set nowb
 set colorcolumn=81
+set backupdir=/tmp
+set directory=/tmp
 
 "ctrlp
 let g:ctrlp_working_path_mode = 0
@@ -190,10 +198,8 @@ let g:syntastic_auto_loc_list=1
 let g:syntastic_check_on_open=1
 
 "minibuf options
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
+noremap <C-Space> :MBEFocus<CR>
 let g:miniBufExplUseSingleClick = 1
-let g:miniBufExplCheckDupeBufs = 0
 let g:miniBufExplVSplit = 40   " column width in chars
 let g:miniBufExplSplitBelow=1  " Put new window on right
 hi MBENormal guifg=gray ctermfg=gray
@@ -204,3 +210,6 @@ let g:Powerline_symbols='fancy'
 "nerdtree
 noremap <silent> <F2> :NERDTreeToggle<CR>
 au VimEnter * highlight clear SignColumn
+
+"ack.vim
+let g:ackprg = 'ag --nogroup --nocolor --column'
