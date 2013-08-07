@@ -17,7 +17,7 @@ Bundle 'majutsushi/tagbar'
 Bundle 'CITguy/vim-coffee-script'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-fugitive'
-Bundle 'Lokaltog/vim-powerline'
+Bundle 'bling/vim-airline'
 " ^^^ This requires patched fonts
 Bundle 'tpope/vim-surround'
 Bundle 'vim-scripts/JSON.vim'
@@ -204,8 +204,8 @@ let g:miniBufExplVSplit = 40   " column width in chars
 let g:miniBufExplSplitBelow=1  " Put new window on right
 hi MBENormal guifg=gray ctermfg=gray
 
-"powerline
-let g:Powerline_symbols='fancy'
+"airline
+let g:airline_powerline_fonts = 1
 
 "nerdtree
 noremap <silent> <F2> :NERDTreeToggle<CR>
