@@ -115,7 +115,7 @@ if has("gui_running")
 	highlight StatusLine guibg=darkred
 	highlight StatusLineNC guifg=purple
 	highlight Comment guifg=salmon
-	set guifont=Inconsolata-dz\ for\ Powerline\ 9
+	set guifont=Inconsolata-dz\ for\ Powerline\ 10
 	" Remove toolbar
 	set guioptions-=T
 	"remove menu
@@ -196,6 +196,7 @@ let g:syntastic_phpcs_disable = 1
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=1
 let g:syntastic_check_on_open=1
+let g:syntastic_python_checkers=['pyflakes']
 
 "minibuf options
 noremap <C-Space> :MBEFocus<CR>
@@ -210,6 +211,8 @@ let g:airline_powerline_fonts = 1
 "nerdtree
 noremap <silent> <F2> :NERDTreeToggle<CR>
 au VimEnter * highlight clear SignColumn
+let NERDTreeWinSize=10
+let NERDTreeMinimalUI=1
 
 "ack.vim
 " let g:ackprg = 'ag --nogroup --nocolor --column'
