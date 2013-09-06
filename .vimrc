@@ -115,7 +115,7 @@ if has("gui_running")
 	highlight StatusLine guibg=darkred
 	highlight StatusLineNC guifg=purple
 	highlight Comment guifg=salmon
-	set guifont=Inconsolata-dz\ for\ Powerline\ 9
+	set guifont=Inconsolata-dz\ for\ Powerline\ 10
 	" Remove toolbar
 	set guioptions-=T
 	"remove menu
@@ -211,6 +211,8 @@ let g:airline_powerline_fonts = 1
 "nerdtree
 noremap <silent> <F2> :NERDTreeToggle<CR>
 au VimEnter * highlight clear SignColumn
+let NERDTreeWinSize=10
+let NERDTreeMinimalUI=1
 
 "airline
 let g:airline#extensions#tagbar#enabled = 0
