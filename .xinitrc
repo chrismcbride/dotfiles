@@ -2,7 +2,7 @@ if [[ `xrandr -q | grep connected | wc -l` -eq "2" ]]; then
 	xrandr --output DVI-0 --mode 1920x1080 --output HDMI-0 --mode 1920x1080 --left-of DVI-0
 fi
 
-xrdb -merge .Xresources
+xrdb ~/.Xresources
 
 xsetroot -solid midnightblue
 xsetroot -cursor_name left_ptr
