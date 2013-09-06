@@ -196,6 +196,7 @@ let g:syntastic_phpcs_disable = 1
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=1
 let g:syntastic_check_on_open=1
+let g:syntastic_python_checkers=['pyflakes']
 
 "minibuf options
 noremap <C-Space> :MBEFocus<CR>
@@ -210,6 +211,11 @@ let g:airline_powerline_fonts = 1
 "nerdtree
 noremap <silent> <F2> :NERDTreeToggle<CR>
 au VimEnter * highlight clear SignColumn
+
+"airline
+let g:airline#extensions#tagbar#enabled = 0
+let g:airline_section_x = ''
+let g:airline_section_y = ''
 
 "ack.vim
 " let g:ackprg = 'ag --nogroup --nocolor --column'
