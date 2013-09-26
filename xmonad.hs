@@ -82,7 +82,7 @@ myStartuphook =  do
 	setWorkspaceName (myWorkspaces!!2) "personal"
 	setWorkspaceName (myWorkspaces!!3) "git"
 	setWorkspaceName (myWorkspaces!!11) "VM"
-	spawnOn (myWorkspaces!!0) "google-chrome"
+	spawnOn (myWorkspaces!!0) "google-chrome-unstable"
 
 myLoghook xmproc = workspaceNamesPP defaultPP {
 					ppOutput = hPutStrLn xmproc,
