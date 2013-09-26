@@ -214,5 +214,10 @@ au VimEnter * highlight clear SignColumn
 let NERDTreeWinSize=10
 let NERDTreeMinimalUI=1
 
+"airline
+let g:airline#extensions#tagbar#enabled = 0
+let g:airline_section_x = ''
+let g:airline_section_y = ''
+
 "ack.vim
 " let g:ackprg = 'ag --nogroup --nocolor --column'
