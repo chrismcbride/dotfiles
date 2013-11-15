@@ -42,6 +42,7 @@ Bundle 'guns/vim-clojure-static'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'airblade/vim-rooter'
+Bundle 'jdonaldson/vaxe'
 
 "make thee comma the leader, and swap the it with ctrl-e
 nnoremap <C-e> ,
