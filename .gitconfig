@@ -9,6 +9,7 @@
 	status = auto
 [core]
 	editor = vim
+	excludesfile = ~/.gitignore
 [branch]
 	autosetupmerge = true
 [push]
