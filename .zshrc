@@ -54,7 +54,7 @@ compdef _git gchangeset=git-checkout
 
 # Customize to your needs...
 export GOPATH=/home/mcbride/.go-path-1.1.2
-export PATH=/usr/local/bin:/usr/local/sbin/:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/games:/usr/games:/opt/java/bin:~/bin:/usr/bin/vendor_perl:~/.gem/ruby/1.9.1/bin/:~/.gem/ruby/2.0.0/bin:$GOPATH/bin:/opt/android-sdk/tools/
+export PATH=/usr/local/bin:/usr/local/sbin/:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/games:/usr/games:/opt/java/bin:~/bin:/usr/bin/vendor_perl:~/.gem/ruby/2.1.0/bin:$GOPATH/bin:/opt/android-sdk/tools/
 export EDITOR=/usr/bin/vim
 export BROWSER=google-chrome
 export GIT_MERGE_AUTOEDIT=no
