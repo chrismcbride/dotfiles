@@ -2,56 +2,55 @@
 # Use preference dialog in lxpanel to adjust config when you can.
 
 Global {
-    edge=bottom
-    allign=left
-    margin=0
-    widthtype=percent
-    width=100
-    height=26
-    transparent=1
-    tintcolor=#000000
-    alpha=0
-    autohide=0
-    heightwhenhidden=2
-    setdocktype=1
-    setpartialstrut=1
-    usefontcolor=1
-    fontsize=10
-    fontcolor=#ffffff
-    usefontsize=0
-    background=0
-    backgroundfile=/usr/share/lxpanel/images/background.png
-    iconsize=24
+  edge=bottom
+  allign=left
+  margin=0
+  widthtype=percent
+  width=100
+  height=26
+  transparent=1
+  tintcolor=#000000
+  alpha=0
+  autohide=0
+  heightwhenhidden=2
+  setdocktype=1
+  setpartialstrut=1
+  usefontcolor=1
+  fontsize=10
+  fontcolor=#ffffff
+  usefontsize=0
+  background=0
+  backgroundfile=/usr/share/lxpanel/images/background.png
+  iconsize=24
+  monitor=0
 }
-
 Plugin {
-    type = taskbar
-    expand=1
-    Config {
-        tooltips=1
-        IconsOnly=0
-        ShowAllDesks=0
-        UseMouseWheel=1
-        UseUrgencyHint=1
-        FlatButton=0
-        MaxTaskWidth=250
-        spacing=1
-        GroupedTasks=0
-    }
+  type=taskbar
+  expand=1
+  Config {
+    tooltips=1
+    IconsOnly=0
+    ShowAllDesks=0
+    UseMouseWheel=1
+    UseUrgencyHint=1
+    FlatButton=0
+    MaxTaskWidth=250
+    spacing=1
+    GroupedTasks=0
+  }
 }
-
 Plugin {
-    type = tray
+  type=tray
+  Config {
+  }
 }
-
 Plugin {
-    type = dclock
-    Config {
-        ClockFmt=%a %b %d %r
-        TooltipFmt=%A %x
-        BoldFont=0
-        IconOnly=0
-        CenterText=0
-    }
+  type=dclock
+  Config {
+    ClockFmt=%a %b %d %r
+    TooltipFmt=%A %x
+    BoldFont=0
+    IconOnly=0
+    CenterText=0
+  }
 }
-
