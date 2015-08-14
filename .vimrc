@@ -198,13 +198,14 @@ let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=1
 let g:syntastic_check_on_open=1
 let g:syntastic_python_checkers=['pyflakes']
+let g:syntastic_coffee_checkers = ['coffeelint']
 
 "minibuf options
 noremap <C-Space> :MBEFocus<CR>
 let g:miniBufExplUseSingleClick = 1
 let g:miniBufExplVSplit = 40   " column width in chars
 let g:miniBufExplSplitBelow=1  " Put new window on right
-hi MBENormal guifg=gray ctermfg=gray
+hi MBENormal guifg=gray guibg=fg
 
 "airline
 let g:airline_powerline_fonts = 1
