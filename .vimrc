@@ -9,7 +9,6 @@ Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-sensible'
 Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
-Bundle 'fholgado/minibufexpl.vim'
 Bundle 'scrooloose/syntastic'
 " ^^^ This requires syntax checkers to be installed (php, jshint)
 Bundle 'majutsushi/tagbar'
@@ -165,6 +164,7 @@ let g:ctrlp_dont_split = ''
 let g:ctrlp_arg_map = 0
 let g:ctrlp_open_multi = '2'
 let g:ctrlp_extensions = ['tag']
+noremap <C-O>   :CtrlPBuffer<CR>
 
 "taqbar
 let g:tagbar_left = 1
@@ -195,17 +195,13 @@ nnoremap <silent> <F8> :TagbarOpenAutoClose<CR>
 let s:php_executable = "/usr/bin/php"
 let g:syntastic_phpcs_disable = 1
 let g:syntastic_enable_signs=1
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_enable_ballons = 1
 let g:syntastic_auto_loc_list=1
 let g:syntastic_check_on_open=1
+let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers=['pyflakes']
 let g:syntastic_coffee_checkers = ['coffeelint']
-
-"minibuf options
-noremap <C-Space> :MBEFocus<CR>
-let g:miniBufExplUseSingleClick = 1
-let g:miniBufExplVSplit = 40   " column width in chars
-let g:miniBufExplSplitBelow=1  " Put new window on right
-hi MBENormal guifg=gray guibg=fg
 
 "airline
 let g:airline_powerline_fonts = 1
