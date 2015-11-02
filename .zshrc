@@ -58,3 +58,6 @@ export PATH=/usr/local/bin:/usr/local/sbin/:/bin:/sbin:/usr/bin:/usr/sbin:/usr/l
 export EDITOR=/usr/bin/vim
 export BROWSER=google-chrome
 export GIT_MERGE_AUTOEDIT=no
+
+export NVM_DIR="/home/mcbride/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
