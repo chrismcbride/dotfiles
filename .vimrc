@@ -42,6 +42,7 @@ Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'airblade/vim-rooter'
 Bundle 'jdonaldson/vaxe'
+Bundle 'rust-lang/rust.vim'
 
 "make thee comma the leader, and swap the it with ctrl-e
 nnoremap <C-e> ,
@@ -155,6 +156,8 @@ set colorcolumn=81
 set backupdir=/tmp
 set directory=/tmp
 
+autocmd FileType cpp setlocal noexpandtab tabstop=4 shiftwidth=4
+
 "ctrlp
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_use_caching = 0
@@ -202,6 +205,10 @@ let g:syntastic_check_on_open=1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers=['pyflakes']
 let g:syntastic_coffee_checkers = ['coffeelint']
+
+let g:syntastic_cpp_compiler_options = '-std=c++0x'
+let g:syntastic_cpp_compiler = "clang++"
+"let g:syntastic_cpp_include_dirs = ['/home/mcbride/src/boost_1_57_0']
 
 "airline
 let g:airline_powerline_fonts = 1
