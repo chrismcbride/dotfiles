@@ -43,6 +43,7 @@ Bundle 'airblade/vim-gitgutter'
 Bundle 'airblade/vim-rooter'
 Bundle 'jdonaldson/vaxe'
 Bundle 'rust-lang/rust.vim'
+Bundle 'davidzchen/vim-bazel'
 
 "make thee comma the leader, and swap the it with ctrl-e
 nnoremap <C-e> ,
@@ -216,7 +217,7 @@ let g:airline_powerline_fonts = 1
 "nerdtree
 noremap <silent> <F2> :NERDTreeToggle<CR>
 au VimEnter * highlight clear SignColumn
-let NERDTreeWinSize=10
+let NERDTreeWinSize=40
 let NERDTreeMinimalUI=1
 
 "airline
