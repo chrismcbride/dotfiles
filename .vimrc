@@ -8,7 +8,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-sensible'
 Bundle 'scrooloose/nerdtree'
-Bundle 'kien/ctrlp.vim'
+Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'scrooloose/syntastic'
 " ^^^ This requires syntax checkers to be installed (php, jshint)
 Bundle 'majutsushi/tagbar'

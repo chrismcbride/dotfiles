@@ -92,7 +92,7 @@ myLoghook xmproc = workspaceNamesPP defaultPP {
 					ppSep = " | ",
 					ppLayout = xmobarColor "orange" "" . trim,
 					ppTitle = xmobarColor "green" "" . trim
-				} >>= dynamicLogWithPP >> updatePointer (Relative 0.25 0.25)
+				} >>= dynamicLogWithPP >> updatePointer (0.25, 0.25) (1,1)
 
 myWorkspaces :: [WorkspaceId]
 myWorkspaces = map show [1..12]
