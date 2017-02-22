@@ -8,7 +8,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-sensible'
 Bundle 'scrooloose/nerdtree'
-Bundle 'kien/ctrlp.vim'
+Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'scrooloose/syntastic'
 " ^^^ This requires syntax checkers to be installed (php, jshint)
 Bundle 'majutsushi/tagbar'
@@ -43,6 +43,7 @@ Bundle 'airblade/vim-gitgutter'
 Bundle 'airblade/vim-rooter'
 Bundle 'jdonaldson/vaxe'
 Bundle 'rust-lang/rust.vim'
+Bundle 'davidzchen/vim-bazel'
 
 "make thee comma the leader, and swap the it with ctrl-e
 nnoremap <C-e> ,
@@ -216,7 +217,7 @@ let g:airline_powerline_fonts = 1
 "nerdtree
 noremap <silent> <F2> :NERDTreeToggle<CR>
 au VimEnter * highlight clear SignColumn
-let NERDTreeWinSize=10
+let NERDTreeWinSize=40
 let NERDTreeMinimalUI=1
 
 "airline
