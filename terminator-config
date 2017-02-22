@@ -1,21 +1,23 @@
 [global_config]
   borderless = True
+  broadcast_default = off
+  dbus = False
 [keybindings]
-[profiles]
-  [[default]]
-    use_system_font = False
-    custom_command = /bin/bash
-    scrollback_lines = 10000
-    scrollbar_position = hidden
-    scroll_on_output = False
-    show_titlebar = False
-    font = DejaVu Sans Mono 10
 [layouts]
   [[default]]
     [[[child1]]]
-      type = Terminal
       parent = window0
+      type = Terminal
     [[[window0]]]
-      type = Window
       parent = ""
+      type = Window
 [plugins]
+[profiles]
+  [[default]]
+    cursor_color = "#aaaaaa"
+    custom_command = /bin/bash
+    font = DejaVu Sans Mono 10
+    scrollback_lines = 10000
+    scrollbar_position = hidden
+    show_titlebar = False
+    use_system_font = False
