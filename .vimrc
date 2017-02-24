@@ -44,6 +44,7 @@ Bundle 'airblade/vim-rooter'
 Bundle 'jdonaldson/vaxe'
 Bundle 'rust-lang/rust.vim'
 Bundle 'davidzchen/vim-bazel'
+Bundle 'tweekmonster/gofmt.vim'
 
 "make thee comma the leader, and swap the it with ctrl-e
 nnoremap <C-e> ,
@@ -117,7 +118,7 @@ if has("gui_running")
 	highlight StatusLine guibg=darkred
 	highlight StatusLineNC guifg=purple
 	highlight Comment guifg=salmon
-	set guifont=Inconsolata-dz\ for\ Powerline\ 10
+	set guifont=Inconsolata-dz\ for\ Powerline\ 14
 	" Remove toolbar
 	set guioptions-=T
 	"remove menu
@@ -226,4 +227,4 @@ let g:airline_section_x = ''
 let g:airline_section_y = ''
 
 "ack.vim
-" let g:ackprg = 'ag --nogroup --nocolor --column'
+let g:ackprg = 'ag --vimgrep'
